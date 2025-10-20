@@ -1,0 +1,64 @@
+namespace StringCalculator;
+
+public static class Calculadora
+{
+    public static int Calcular(string operacion)
+    {
+        return operacion switch
+        {
+            string ope when ope.Contains("+") => ResolverSumatoria(ope),
+            string ope when (ope.Count(c => c == '-') == 1 && ope.StartsWith("-")) || !ope.Contains("-") => Convert.ToInt32(operacion),
+            _ => ResolverResta(operacion),
+        };
+    }
+
+    private static int ResolverSumatoria(string operacion)
+    {
+        return ResolverOperacion(operacion, "+", (resultadoActual,digito) => resultadoActual + Convert.ToInt32(digito),0) ?? 0;
+    }
+
+    private static int ResolverResta(string operacion)
+    {
+        string operadorAdicional = "";
+
+        return ResolverOperacion(operacion, "-", (resultadoActual,digito) =>
+        {
+            if(string.IsNullOrEmpty(digito))
+                operadorAdicional = "-";
+            else
+            {
+                int digitoResuleto = Convert.ToInt32(operadorAdicional + digito);
+                if(resultadoActual is null)
+                    resultadoActual = digitoResuleto;
+                else
+                    resultadoActual -=  digitoResuleto;
+                operadorAdicional = "";
+            }
+            
+            return resultadoActual;
+        }) ?? 0;
+    }
+
+    private static int? ResolverOperacion(string operacion, string operador,  Func<int?,string,int?> funcion, int? resultadoInicial = null)
+    {
+        int? resultado = resultadoInicial;
+        foreach (string digito in operacion.Split(operador))
+        {
+            try
+            {
+                resultado = funcion(resultado,digito);
+            }
+            catch (Exception e)
+            {
+                ExcepcionArgumentoNoValido(!int.TryParse(digito,out _) && !operador.StartsWith("-"));
+            }
+           
+        }
+
+        return resultado;
+    }
+    
+    private static void  ExcepcionArgumentoNoValido(bool condicion)  {
+        if(condicion) throw new ArgumentException("operación no valida");
+    }
+}  
