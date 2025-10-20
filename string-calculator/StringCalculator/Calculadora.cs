@@ -4,12 +4,18 @@ public static class Calculadora
 {
     public static int Calcular(string operacion)
     {
-        return operacion switch
+        if (operacion.Contains("+"))
         {
-            "4+3" => 7,
-            "5+3" => 8,
-            _ => Convert.ToInt32(operacion)
+            int sumatoria = 0;
+            
+            foreach (string digito in operacion.Split("+"))
+                sumatoria += Convert.ToInt32(digito);
+            
+            return sumatoria;
+            
+        }
 
-        };
+        return Convert.ToInt32(operacion);
+
     }
 }
