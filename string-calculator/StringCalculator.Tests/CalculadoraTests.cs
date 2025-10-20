@@ -83,6 +83,16 @@ public class CalculadoraTests
         // Assert
         resultado.Should().Be(-7);
     }
+
+    [Fact]
+    public void Si_LaEntradaEs4Mas_DebeLanzarExcepcion()
+    {
+        // Arrange && Act
+        Action funcionCalculo = () => { Calculadora.Calcular("4+"); };
+
+        // Assert
+        funcionCalculo.Should().Throw<ArgumentException>();
+    }
 }
 
 
