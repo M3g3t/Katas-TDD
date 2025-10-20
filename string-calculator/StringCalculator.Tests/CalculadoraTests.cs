@@ -2,7 +2,7 @@
 
 namespace StringCalculator.Tests;
 
-public class CalculatorTests
+public class CalculadoraTests
 {
     [Fact]
     public void Si_LaEntradaEs1_DebeCalcularUno()
@@ -15,10 +15,4 @@ public class CalculatorTests
     }
 }
 
-public class Calculadora
-{
-    public static int Calcular(string s)
-    {
-        return 1;
-    }
-}
+

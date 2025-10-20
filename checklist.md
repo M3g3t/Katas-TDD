@@ -1,6 +1,6 @@
 # String Calculator
 
-- [ ] Si digito "1" el resultado es 1 
+- [x] Si digito "1" el resultado es 1 
 - [ ] Si digito "2" el resultado es 2 
 - [ ] Si digito "-1" el resultado es -1
 - [ ] Si digito "-2" el resultado es -2 
