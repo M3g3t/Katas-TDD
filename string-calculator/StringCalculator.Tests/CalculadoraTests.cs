@@ -73,6 +73,16 @@ public class CalculadoraTests
         // Assert
         resultado.Should().Be(2);
     }
+
+    [Fact]
+    public void Si_laEntradaEsmenos5Menos2_DebeCalcularMenos7()
+    {
+        // Arrange && Act
+        int resultado = Calculadora.Calcular("-5-2");
+
+        // Assert
+        resultado.Should().Be(-7);
+    }
 }
 
 
