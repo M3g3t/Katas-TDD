@@ -7,7 +7,7 @@ public static class Calculadora
         return operacion switch
         {
             string ope when ope.Contains("+") => ResolverSumatoria(operacion),
-            "5-2" => 3,
+            string ope when ope.Contains("-") && !ope.StartsWith("-")  => Convert.ToInt32(ope.Split("-")[0]) - Convert.ToInt32(ope.Split("-")[1]),
             _ => Convert.ToInt32(operacion)
         };
     }
