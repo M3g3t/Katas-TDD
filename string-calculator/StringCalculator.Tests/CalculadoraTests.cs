@@ -93,6 +93,16 @@ public class CalculadoraTests
         // Assert
         funcionCalculo.Should().Throw<ArgumentException>().WithMessage("operación no valida");
     }
+
+    [Fact]
+    public void Si_LaEntradaEs1Mas5Menos2Mas2LanzarArgumentException()
+    {
+        // Arrange && Act
+        Action funcionCalculo = () => { Calculadora.Calcular("1+5-2+2"); };
+
+        // Assert
+        funcionCalculo.Should().Throw<ArgumentException>().WithMessage("operación no valida");
+    }
 }
 
 
