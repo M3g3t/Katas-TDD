@@ -4,9 +4,6 @@ public static class Calculadora
 {
     public static int Calcular(string operacion)
     {
-
-        if (operacion == "4+") throw new ArgumentException("operación no valida");
-            
         return operacion switch
         {
             string ope when ope.Contains("+") => ResolverSumatoria(ope),
@@ -23,7 +20,7 @@ public static class Calculadora
     private static int ResolverResta(string operacion)
     {
         string operadorAdicional = "";
-        
+
         return ResolverOperacion(operacion, "-", (resultadoActual,digito) =>
         {
             if(string.IsNullOrEmpty(digito))
@@ -47,11 +44,14 @@ public static class Calculadora
         int? resultado = resultadoInicial;
         foreach (string digito in operacion.Split(operador))
         {
-            if (operador.Contains("-") || operador.Contains("+")) throw new ArgumentException("operación no valida");
-            
+                ExcepcionArgumentoNoValido(!int.TryParse(digito,out _) && !operador.StartsWith("-"));
             resultado = funcion(resultado,digito);
         }
 
         return resultado;
     }
-}
+    
+    private static void  ExcepcionArgumentoNoValido(bool condicion)  {
+        if(condicion) throw new ArgumentException("operación no valida");
+    }
+}  

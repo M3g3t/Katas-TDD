@@ -4,105 +4,56 @@ namespace StringCalculator.Tests;
 
 public class CalculadoraTests
 {
-    [Fact]
-    public void Si_LaEntradaEs1_DebeCalcular1()
+    [Theory]
+    [InlineData("1",1)]
+    [InlineData("-2",-2)]
+    public void Si_LaEntradaEsUnNumero_DebeRetornarlo(string operacion, int resultadoEsperado)
     {
         // Arrange && Act
-        int resultado = Calculadora.Calcular("1");
+        int resultado = Calculadora.Calcular(operacion);
 
         // Assert
-        resultado.Should().Be(1);
+        resultado.Should().Be(resultadoEsperado);
     }
-
-    [Fact]
-    public void Si_LaEntradaEsmenos2_DebeCalcular2()
+    
+    [Theory]
+    [InlineData("4+3",7)]
+    [InlineData("5+3",8)]
+    [InlineData("-2+10+2",10)]
+    public void Si_LaEntradaEsUnaSuma_DebeRetonarElResultado(string operacion, int resultadoEsperado)
     {
         // Arrange && Act
-        int resultado = Calculadora.Calcular("-2");
+        int resultado = Calculadora.Calcular(operacion);
 
         // Assert
-        resultado.Should().Be(-2);
+        resultado.Should().Be(resultadoEsperado);
     }
-
-    [Fact]
-    public void Si_LaEntradaEs4Mas3_DebeCalcular7()
+    
+    [Theory]
+    [InlineData("5-2",3)]
+    [InlineData("6-4",2)]
+    [InlineData("-5-2",-7)]
+    public void Si_LaEntradaEsUnaResta_DebeRetonarElResultado(string operacion, int resultadoEsperado)
     {
         // Arrange && Act
-        int resultado = Calculadora.Calcular("4+3");
+        int resultado = Calculadora.Calcular(operacion);
 
         // Assert
-        resultado.Should().Be(7);
+        resultado.Should().Be(resultadoEsperado);
     }
-
-    [Fact]
-    public void Si_LaEntradaEs5Mas3_DebeCalcular8()
+    
+    [Theory]
+    [InlineData("4+")]
+    [InlineData("1+5-2+2")]
+    public void Si_LaEntradaNoEsUnaOperacionValidaONumero_DebeLanzarArgumentExcepcion(string operacion)
     {
         // Arrange && Act
-        int resultado = Calculadora.Calcular("5+3");
-
-        // Assert
-        resultado.Should().Be(8);
-    }
-
-    [Fact]
-    public void Si_LaEntradaEsMenos2MasDiezMasDos_DebeCalcular10()
-    {
-        // Arrange && Act
-        int resultado = Calculadora.Calcular("-2+10+2");
-
-        // Assert
-        resultado.Should().Be(10);
-    }
-
-    [Fact]
-    public void Si_LaEntradaEs5Menos2_DebeCalcular3()
-    {
-        // Arrange && Act
-        int resultado = Calculadora.Calcular("5-2");
-
-        // Assert
-        resultado.Should().Be(3);
-    }
-
-    [Fact]
-    public void Si_LaEntradaEs6Menos4_DebeCalcular2()
-    {
-        // Arrange && Act
-        int resultado = Calculadora.Calcular("6-4");
-
-        // Assert
-        resultado.Should().Be(2);
-    }
-
-    [Fact]
-    public void Si_laEntradaEsmenos5Menos2_DebeCalcularMenos7()
-    {
-        // Arrange && Act
-        int resultado = Calculadora.Calcular("-5-2");
-
-        // Assert
-        resultado.Should().Be(-7);
-    }
-
-    [Fact]
-    public void Si_LaEntradaEs4Mas_DebeLanzarArgumentExcepcion()
-    {
-        // Arrange && Act
-        Action funcionCalculo = () => { Calculadora.Calcular("4+"); };
+        Action funcionCalculo = () => { Calculadora.Calcular(operacion); };
 
         // Assert
         funcionCalculo.Should().Throw<ArgumentException>().WithMessage("operación no valida");
     }
-
-    [Fact]
-    public void Si_LaEntradaEs1Mas5Menos2Mas2LanzarArgumentException()
-    {
-        // Arrange && Act
-        Action funcionCalculo = () => { Calculadora.Calcular("1+5-2+2"); };
-
-        // Assert
-        funcionCalculo.Should().Throw<ArgumentException>().WithMessage("operación no valida");
-    }
+    
 }
 
 
