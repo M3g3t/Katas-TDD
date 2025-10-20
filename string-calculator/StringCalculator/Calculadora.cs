@@ -5,7 +5,7 @@ public static class Calculadora
     public static int Calcular(string operacion)
     {
 
-        if (operacion == "4+") throw new ArgumentException();
+        if (operacion == "4+") throw new ArgumentException("operación no valida");
             
         return operacion switch
         {

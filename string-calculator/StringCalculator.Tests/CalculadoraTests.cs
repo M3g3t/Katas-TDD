@@ -85,13 +85,13 @@ public class CalculadoraTests
     }
 
     [Fact]
-    public void Si_LaEntradaEs4Mas_DebeLanzarExcepcion()
+    public void Si_LaEntradaEs4Mas_DebeLanzarArgumentExcepcion()
     {
         // Arrange && Act
         Action funcionCalculo = () => { Calculadora.Calcular("4+"); };
 
         // Assert
-        funcionCalculo.Should().Throw<ArgumentException>();
+        funcionCalculo.Should().Throw<ArgumentException>().WithMessage("operación no valida");
     }
 }
 
