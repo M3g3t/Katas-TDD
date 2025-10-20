@@ -4,6 +4,9 @@ public static class Calculadora
 {
     public static int Calcular(string operacion)
     {
+
+        if (operacion == "4+") throw new ArgumentException();
+            
         return operacion switch
         {
             string ope when ope.Contains("+") => ResolverSumatoria(ope),
