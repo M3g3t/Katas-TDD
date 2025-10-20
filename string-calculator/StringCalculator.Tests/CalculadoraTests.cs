@@ -5,7 +5,7 @@ namespace StringCalculator.Tests;
 public class CalculadoraTests
 {
     [Fact]
-    public void Si_LaEntradaEs1_DebeCalcularUno()
+    public void Si_LaEntradaEs1_DebeCalcular1()
     {
         // Arrange && Act
         int resultado = Calculadora.Calcular("1");
@@ -15,7 +15,7 @@ public class CalculadoraTests
     }
 
     [Fact]
-    public void Si_LaEntradaEsmenos2_DebeCalcularDos()
+    public void Si_LaEntradaEsmenos2_DebeCalcular2()
     {
         // Arrange && Act
         int resultado = Calculadora.Calcular("-2");
