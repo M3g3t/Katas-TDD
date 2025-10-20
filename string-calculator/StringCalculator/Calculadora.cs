@@ -4,8 +4,12 @@ public static class Calculadora
 {
     public static int Calcular(string operacion)
     {
-        if (operacion.Equals("4+3")) return 7;
-        if (operacion.Equals("5+3")) return 8;
-        return Convert.ToInt32(operacion);
+        return operacion switch
+        {
+            "4+3" => 7,
+            "5+3" => 8,
+            _ => Convert.ToInt32(operacion)
+
+        };
     }
 }
