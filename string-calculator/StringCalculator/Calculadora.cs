@@ -4,12 +4,12 @@ public static class Calculadora
 {
     public static int Calcular(string operacion)
     {
-        if (operacion.Contains("+"))
-            return ResolverSumatoria(operacion);
-
-        if (operacion == "5-2") return 3;
-
-        return Convert.ToInt32(operacion);
+        return operacion switch
+        {
+            string ope when ope.Contains("+") => ResolverSumatoria(operacion),
+            "5-2" => 3,
+            _ => Convert.ToInt32(operacion)
+        };
     }
 
     private static int ResolverSumatoria(string operacion)
