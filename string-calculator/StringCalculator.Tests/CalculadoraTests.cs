@@ -33,6 +33,16 @@ public class CalculadoraTests
         // Assert
         resultado.Should().Be(7);
     }
+
+    [Fact]
+    public void Si_LaEntradaEs5Mas3_DebeCalcular8()
+    {
+        // Arrange && Act
+        int resultado = Calculadora.Calcular("5+3");
+
+        // Assert
+        resultado.Should().Be(8);
+    }
 }
 
 
