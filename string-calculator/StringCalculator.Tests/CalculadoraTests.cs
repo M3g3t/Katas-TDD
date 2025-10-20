@@ -63,6 +63,16 @@ public class CalculadoraTests
         // Assert
         resultado.Should().Be(3);
     }
+
+    [Fact]
+    public void Si_LaEntradaEs6Menos4_DebeCalcular2()
+    {
+        // Arrange && Act
+        int resultado = Calculadora.Calcular("6-4");
+
+        // Assert
+        resultado.Should().Be(2);
+    }
 }
 
 
