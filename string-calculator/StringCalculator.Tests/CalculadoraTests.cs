@@ -13,6 +13,16 @@ public class CalculadoraTests
         // Assert
         resultado.Should().Be(1);
     }
+
+    [Fact]
+    public void Si_LaEntradaEsmenos2_DebeCalcularDos()
+    {
+        // Arrange && Act
+        int resultado = Calculadora.Calcular("-2");
+
+        // Assert
+        resultado.Should().Be(-2);
+    }
 }
 
 
