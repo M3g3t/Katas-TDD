@@ -4,6 +4,6 @@ public static class Calculadora
 {
     public static int Calcular(string s)
     {
-        return 1;
+        return Convert.ToInt32(s);
     }
 }
