@@ -7,8 +7,8 @@ public static class Calculadora
         return operacion switch
         {
             string ope when ope.Contains("+") => ResolverSumatoria(ope),
-            string ope when ope.Contains("-") && !ope.StartsWith("-")  => ResolverResta(ope),
-            _ => Convert.ToInt32(operacion)
+            string ope when (ope.Count(c => c == '-') == 1 && ope.StartsWith("-")) || !ope.Contains("-") => Convert.ToInt32(operacion),
+            _ => ResolverResta(operacion),
         };
     }
 
@@ -24,6 +24,21 @@ public static class Calculadora
 
     private static int ResolverResta(string operacion)
     {
-        return Convert.ToInt32(operacion.Split("-")[0]) - Convert.ToInt32(operacion.Split("-")[1]);
+        int? resultado = null;
+        string operadorAdicional = "";
+        foreach (string digito in operacion.Split("-"))
+        {
+            if(string.IsNullOrEmpty(digito))
+                operadorAdicional = "-";
+            else {
+                if(resultado is null)
+                    resultado = Convert.ToInt32(operadorAdicional + digito);
+                else
+                    resultado -=  Convert.ToInt32(operadorAdicional + digito);
+                operadorAdicional = "";
+            }
+        }
+        
+        return resultado ?? 0;
     }
 }
