@@ -47,6 +47,8 @@ public static class Calculadora
         int? resultado = resultadoInicial;
         foreach (string digito in operacion.Split(operador))
         {
+            if (operador.Contains("-") || operador.Contains("+")) throw new ArgumentException("operación no valida");
+            
             resultado = funcion(resultado,digito);
         }
 
