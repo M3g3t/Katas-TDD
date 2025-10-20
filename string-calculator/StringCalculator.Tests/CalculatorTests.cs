@@ -1,4 +1,6 @@
-﻿namespace StringCalculator.Tests;
+﻿using AwesomeAssertions;
+
+namespace StringCalculator.Tests;
 
 public class CalculatorTests
 {
@@ -10,5 +12,13 @@ public class CalculatorTests
 
         // Assert
         resultado.Should().Be(1);
+    }
+}
+
+public class Calculadora
+{
+    public static int Calcular(string s)
+    {
+        return 1;
     }
 }
