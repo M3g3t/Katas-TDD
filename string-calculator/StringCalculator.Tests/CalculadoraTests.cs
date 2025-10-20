@@ -43,6 +43,16 @@ public class CalculadoraTests
         // Assert
         resultado.Should().Be(8);
     }
+
+    [Fact]
+    public void Si_LaEntradaEsMenos2MasDiezMasDos_DebeCalcular10()
+    {
+        // Arrange && Act
+        int resultado = Calculadora.Calcular("-2+10+2");
+
+        // Assert
+        resultado.Should().Be(10);
+    }
 }
 
 
