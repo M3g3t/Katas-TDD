@@ -7,4 +7,4 @@
 - [x] Si digito "-2+10+2" el resultado es 10
 - [x] Si digito "5-2" el resultado es 3
 - [x] Si digito "6-4" el resultado es 2
-- [ ] Si digito "-5-2" el resultado -3
+- [x] Si digito "-5-2" el resultado -7

@@ -14,31 +14,39 @@ public static class Calculadora
 
     private static int ResolverSumatoria(string operacion)
     {
-        int sumatoria = 0;
-            
-        foreach (string digito in operacion.Split("+"))
-            sumatoria += Convert.ToInt32(digito);
-            
-        return sumatoria;
+        return ResolverOperacion(operacion, "+", (resultadoActual,digito) => resultadoActual + Convert.ToInt32(digito),0) ?? 0;
     }
 
     private static int ResolverResta(string operacion)
     {
-        int? resultado = null;
         string operadorAdicional = "";
-        foreach (string digito in operacion.Split("-"))
+        
+        return ResolverOperacion(operacion, "-", (resultadoActual,digito) =>
         {
             if(string.IsNullOrEmpty(digito))
                 operadorAdicional = "-";
-            else {
-                if(resultado is null)
-                    resultado = Convert.ToInt32(operadorAdicional + digito);
+            else
+            {
+                int digitoResuleto = Convert.ToInt32(operadorAdicional + digito);
+                if(resultadoActual is null)
+                    resultadoActual = digitoResuleto;
                 else
-                    resultado -=  Convert.ToInt32(operadorAdicional + digito);
+                    resultadoActual -=  digitoResuleto;
                 operadorAdicional = "";
             }
+            
+            return resultadoActual;
+        }) ?? 0;
+    }
+
+    private static int? ResolverOperacion(string operacion, string operador,  Func<int?,string,int?> funcion, int? resultadoInicial = null)
+    {
+        int? resultado = resultadoInicial;
+        foreach (string digito in operacion.Split(operador))
+        {
+            resultado = funcion(resultado,digito);
         }
-        
-        return resultado ?? 0;
+
+        return resultado;
     }
 }
