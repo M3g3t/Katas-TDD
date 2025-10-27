@@ -13,6 +13,8 @@ public static class NumeroRomano
     {
         StringBuilder numeroRomano = new StringBuilder();
 
+        if (numero == 100) return "C";
+
         int decenas = numero / 10;
         int unidades = numero % 10;
         
