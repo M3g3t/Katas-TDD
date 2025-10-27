@@ -12,6 +12,7 @@ public static class NumeroRomano
     private static string ProcesarNumeroRomano(int numero)
     {
         if (numero == 100) return "C";
+        if (numero == 1000) return "M";
         
         StringBuilder numeroRomano = new StringBuilder();
         
