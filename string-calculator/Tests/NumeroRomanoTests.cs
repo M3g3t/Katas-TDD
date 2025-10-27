@@ -61,28 +61,16 @@ public class NumeroRomanoTests
         resultado.Should().Be("M");
     }
 
-    [Fact]
-    public void Si_Digito5ElSistema_DebeConvertirAV()
-    {
-        string resultado = NumeroRomano.Convertir(5);
-        
-        resultado.Should().Be("V");
-    }
 
-    [Fact]
-    public void Si_Digito50ElSistema_DebeConvertirAL()
+    [Theory]
+    [InlineData(5,"V")]
+    [InlineData(50,"L")]
+    [InlineData(500,"D")]
+    public void Si_DigitoNumeroBase5ElSistema_DebeConvertirALaLetraCorrespondiente(short numero, string esperado)
     {
-        string resultado = NumeroRomano.Convertir(50);
+        string resultado = NumeroRomano.Convertir(numero);
         
-        resultado.Should().Be("L");
-    }
-
-    [Fact]
-    public void Si_Digito500ElSistema_DebeConvertirAD()
-    {
-        string resultado = NumeroRomano.Convertir(500);
-        
-        resultado.Should().Be("D");
+        resultado.Should().Be(esperado);
     }
 }
 
