@@ -68,5 +68,13 @@ public class NumeroRomanoTests
         
         resultado.Should().Be("V");
     }
+
+    [Fact]
+    public void Si_Digito50ElSistema_DebeConvertirAL()
+    {
+        string resultado = NumeroRomano.Convertir(50);
+        
+        resultado.Should().Be("L");
+    }
 }
 
