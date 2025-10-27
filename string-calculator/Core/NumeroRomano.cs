@@ -11,13 +11,18 @@ public static class NumeroRomano
     {
         string numeroRomano = string.Empty;
 
-        if (numero == 10) return "X";
+        numeroRomano = ProcesarDecena(numero);
+
+        if (!string.IsNullOrEmpty(numeroRomano)) return numeroRomano;
         
         for (int i = 1; i <= numero; i++)
             numeroRomano += "I";
 
         return numeroRomano;
     }
+
+
+    private static string ProcesarDecena(int numero) => numero is 10 ? "X" : string.Empty;
 
 
 }
