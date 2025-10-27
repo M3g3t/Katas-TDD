@@ -7,18 +7,17 @@ public class NumeroRomanoTests
     [Fact]
     public void Si_Digito1ElSistema_DebeConvertirAI()
     {
-        var numeroRomano = new NumeroRomano();
-
-        var resultado = numeroRomano.Convertir(1);
+        string resultado = NumeroRomano.Convertir(1);
         
         resultado.Should().Be("I");
     }
-}
 
-public class NumeroRomano
-{
-    public object Convertir(int i)
+    [Fact]
+    public void Si_Digito2ElSistema_DebeConvertirAII()
     {
-        return "I";
+        string resultado = NumeroRomano.Convertir(2);
+
+        resultado.Should().Be("II");
     }
 }
+
