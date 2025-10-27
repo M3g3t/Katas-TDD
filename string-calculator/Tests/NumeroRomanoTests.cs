@@ -1,6 +1,6 @@
 using AwesomeAssertions;
 
-namespace StringCalculator.Tests;
+namespace Core.Tests;
 
 public class NumeroRomanoTests
 {
@@ -18,6 +18,15 @@ public class NumeroRomanoTests
         string resultado = NumeroRomano.Convertir(2);
 
         resultado.Should().Be("II");
+    }
+
+    [Fact]
+    public void Si_Digito3ElSistema_DebeConvertirAIII()
+    {
+
+        string resultado = NumeroRomano.Convertir(3);
+            
+        resultado.Should().Be("III");
     }
 }
 
