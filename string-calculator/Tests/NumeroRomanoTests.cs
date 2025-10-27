@@ -36,5 +36,13 @@ public class NumeroRomanoTests
         
         resultado.Should().Be("XX");
     }
+
+    [Fact]
+    public void Si_Digito30_ElSistema_DebeConvertirAXXX()
+    {
+        string resultado = NumeroRomano.Convertir(30);
+        
+        resultado.Should().Be("XXX");
+    }
 }
 
