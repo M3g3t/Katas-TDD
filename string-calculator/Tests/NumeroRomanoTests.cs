@@ -62,7 +62,7 @@ public class NumeroRomanoTests
     }
 
     [Fact]
-    public void Si_Digito5ElSistema_Debe_ConvertirAV()
+    public void Si_Digito5ElSistema_DebeConvertirAV()
     {
         string resultado = NumeroRomano.Convertir(5);
         

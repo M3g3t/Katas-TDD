@@ -5,7 +5,7 @@ namespace Core;
 public static class NumeroRomano
 {
 
-    private static Dictionary<int, char> _valores => new()
+    private static Dictionary<short, char> _valores => new()
     {
         { 1000,'M'},
         { 100, 'C'},
@@ -14,12 +14,12 @@ public static class NumeroRomano
         { 5, 'V'},
         { 1, 'I'}
     };
-    public static string Convertir(int numero)
+    public static string Convertir(short numero)
     {
         return ProcesarNumeroRomano(numero);
     }
 
-    private static string ProcesarNumeroRomano(int numero)
+    private static string ProcesarNumeroRomano(short numero)
     {
         if (ProcesarNumeroDirecto(numero) is char letra)
             return letra.ToString();
@@ -31,16 +31,16 @@ public static class NumeroRomano
         
         for (int i = 0 ; i < decenas; i++)
         {
-            numeroRomano.Append(_valores.GetValueOrDefault(10));
+            numeroRomano.Append(_valores[10]);
         }
         
         if(unidades > 0)
-            numeroRomano.Append(new string(_valores.GetValueOrDefault(1), unidades));
+            numeroRomano.Append(new string(_valores[1], unidades));
         
         return numeroRomano.ToString();
     }
 
-    private static char? ProcesarNumeroDirecto(int numero)
+    private static char? ProcesarNumeroDirecto(short numero)
     {
         if (_valores.TryGetValue(numero, out char letra)) return letra;
 
