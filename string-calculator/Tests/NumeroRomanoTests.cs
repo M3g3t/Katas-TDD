@@ -76,5 +76,13 @@ public class NumeroRomanoTests
         
         resultado.Should().Be("L");
     }
+
+    [Fact]
+    public void Si_Digito500ElSistema_DebeConvertirAD()
+    {
+        string resultado = NumeroRomano.Convertir(500);
+        
+        resultado.Should().Be("D");
+    }
 }
 
