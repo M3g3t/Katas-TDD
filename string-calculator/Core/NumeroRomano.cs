@@ -10,6 +10,7 @@ public static class NumeroRomano
         { 1000,'M'},
         { 100, 'C'},
         { 10, 'X'},
+        { 5, 'V'},
         { 1, 'I'}
     };
     public static string Convertir(int numero)
