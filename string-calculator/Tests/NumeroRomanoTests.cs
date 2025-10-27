@@ -28,5 +28,13 @@ public class NumeroRomanoTests
             
         resultado.Should().Be("X");
     }
+
+    [Fact]
+    public void Si_Digito20ElSistema_DebeConvertirAXX()
+    {
+        string resultado = NumeroRomano.Convertir(20);
+        
+        resultado.Should().Be("XX");
+    }
 }
 
