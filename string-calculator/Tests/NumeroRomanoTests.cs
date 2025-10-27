@@ -69,5 +69,13 @@ public class NumeroRomanoTests
         
         resultado.Should().Be("IX");
     }
+
+    [Fact]
+    public void Si_Digito40ElSistema_DebeConvertirXL()
+    {
+        string resultado = NumeroRomano.Convertir(40);
+        
+        resultado.Should().Be("XL");
+    }
 }
 
