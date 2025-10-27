@@ -11,6 +11,8 @@ public static class NumeroRomano
     {
         string numeroRomano = string.Empty;
 
+        if (numero == 10) return "X";
+        
         for (int i = 1; i <= numero; i++)
             numeroRomano += "I";
 
