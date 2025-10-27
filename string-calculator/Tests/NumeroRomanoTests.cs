@@ -49,7 +49,16 @@ public class NumeroRomanoTests
     public void Si_Digito100_ElSistema_DebeConvertirAC()
     {
         string resultado = NumeroRomano.Convertir(100);
+        
         resultado.Should().Be("C");
+    }
+
+    [Fact]
+    public void Si_Digito1000ElSistema_DebeConvertirAM()
+    {
+        string resultado = NumeroRomano.Convertir(1000);
+        
+        resultado.Should().Be("M");
     }
 }
 
