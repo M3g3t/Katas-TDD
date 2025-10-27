@@ -20,7 +20,8 @@ public static class NumeroRomano
 
     private static string ProcesarNumeroRomano(int numero)
     {
-        if (_valores.TryGetValue(numero, out char letra)) return letra.ToString();
+        if (ProcesarNumeroDirecto(numero) is char letra)
+            return letra.ToString();
         
         StringBuilder numeroRomano = new StringBuilder();
         
@@ -36,5 +37,12 @@ public static class NumeroRomano
             numeroRomano.Append(new string(_valores.GetValueOrDefault(1), unidades));
         
         return numeroRomano.ToString();
+    }
+
+    private static char? ProcesarNumeroDirecto(int numero)
+    {
+        if (_valores.TryGetValue(numero, out char letra)) return letra;
+
+        return null;
     }
 }

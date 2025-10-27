@@ -9,7 +9,7 @@
  - [x] Si digito el numero 100 el sistema debe convertir a "C"
  - [x] Si digito el numero 1000 el sistema debe convertir a "M"
   
- - [ ] Si digito el numero 5 el sistema debe convertir a "V"
+ - [x] Si digito el numero 5 el sistema debe convertir a "V"
  - [ ] Si digito el numero 50 el sistema debe convertir a "L"
  - [ ] Si digito el numero 500 el sistema debe convertir a "D"
  
