@@ -61,7 +61,6 @@ public class NumeroRomanoTests
         resultado.Should().Be("M");
     }
 
-
     [Theory]
     [InlineData(5,"V")]
     [InlineData(50,"L")]
@@ -71,6 +70,14 @@ public class NumeroRomanoTests
         string resultado = NumeroRomano.Convertir(numero);
         
         resultado.Should().Be(esperado);
+    }
+
+    [Fact]
+    public void Si_Digito4ElSistema_DebeConvertirAIV()
+    {
+        string resultado = NumeroRomano.Convertir(4);
+        
+        resultado.Should().Be("IV");
     }
 }
 
