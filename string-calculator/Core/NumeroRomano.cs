@@ -21,10 +21,17 @@ public static class NumeroRomano
 
     private static string ProcesarDecena(int numero)
     {
-        if (numero is 10) return "X";
-        if (numero is 20) return "XX";
+        string numeroRomano = string.Empty;
 
-        return string.Empty;
+        for (int i = 1; i <= numero; i++)
+        {
+            if (i % 10 == 0)
+            {
+                numeroRomano += "X"; 
+            }
+        }
+        
+        return numeroRomano;
     }
 
     private static string ProcesarUnidades(int numero)
