@@ -4,7 +4,7 @@
  - [x] Si digito el numero 2 el sistema debe convertir a "II"
  - [x] Si digito el numero 3 el sistema debe convertir a "III"
  - [x] Si digito el numero 10 el sistema debe convertir a "X"
- - [ ] Si digito el numero 20 el sistema debe convertir a "XX"
+ - [x] Si digito el numero 20 el sistema debe convertir a "XX"
  - [ ] Si digito el numero 30 el sistema debe convertir a "XXX"
  - [ ] Si digito el numero 100 el sistema debe convertir a "C"
  - [ ] Si digito el numero 1000 el sistema debe convertir a "M"
