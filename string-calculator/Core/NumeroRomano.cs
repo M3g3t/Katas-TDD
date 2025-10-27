@@ -22,7 +22,11 @@ public static class NumeroRomano
     }
 
 
-    private static string ProcesarDecena(int numero) => numero is 10 ? "X" : string.Empty;
+    private static string ProcesarDecena(int numero)
+    {
+        if (numero is 10) return "X";
+        if (numero is 20) return "XX";
 
-
+        return string.Empty;
+    }
 }
