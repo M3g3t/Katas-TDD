@@ -21,12 +21,12 @@ public class NumeroRomanoTests
     }
 
     [Fact]
-    public void Si_Digito3ElSistema_DebeConvertirAIII()
+    public void Si_Digito10ElSistema_DebeConvertirAX()
     {
 
-        string resultado = NumeroRomano.Convertir(3);
+        string resultado = NumeroRomano.Convertir(10);
             
-        resultado.Should().Be("III");
+        resultado.Should().Be("X");
     }
 }
 
