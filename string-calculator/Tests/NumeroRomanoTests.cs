@@ -4,13 +4,18 @@ namespace Core.Tests;
 
 public class NumeroRomanoTests
 {
-    [Fact]
-    public void Si_Digito1ElSistema_DebeConvertirAI()
+    [Theory]
+    [InlineData(1,"I")]
+    [InlineData(10,"X")]
+    [InlineData(100,"C")]
+    [InlineData(1000,"M")]
+    public void Si_DigitoNumeroBase1ElSistema_DebeConvertirALaLetraCorrespondiente(short numero, string esperado)
     {
-        string resultado = NumeroRomano.Convertir(1);
+        string resultado = NumeroRomano.Convertir(numero);
         
-        resultado.Should().Be("I");
+        resultado.Should().Be(esperado);
     }
+    
 
     [Fact]
     public void Si_Digito2ElSistema_DebeConvertirAII()
@@ -19,15 +24,7 @@ public class NumeroRomanoTests
 
         resultado.Should().Be("II");
     }
-
-    [Fact]
-    public void Si_Digito10ElSistema_DebeConvertirAX()
-    {
-
-        string resultado = NumeroRomano.Convertir(10);
-            
-        resultado.Should().Be("X");
-    }
+    
 
     [Fact]
     public void Si_Digito20ElSistema_DebeConvertirAXX()
@@ -44,22 +41,7 @@ public class NumeroRomanoTests
         
         resultado.Should().Be("XXX");
     }
-
-    [Fact]
-    public void Si_Digito100ElSistema_DebeConvertirAC()
-    {
-        string resultado = NumeroRomano.Convertir(100);
-        
-        resultado.Should().Be("C");
-    }
-
-    [Fact]
-    public void Si_Digito1000ElSistema_DebeConvertirAM()
-    {
-        string resultado = NumeroRomano.Convertir(1000);
-        
-        resultado.Should().Be("M");
-    }
+    
 
     [Theory]
     [InlineData(5,"V")]
