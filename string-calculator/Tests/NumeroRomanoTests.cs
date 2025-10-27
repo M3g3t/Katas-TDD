@@ -44,5 +44,12 @@ public class NumeroRomanoTests
         
         resultado.Should().Be("XXX");
     }
+
+    [Fact]
+    public void Si_Digito100_ElSistema_DebeConvertirAC()
+    {
+        string resultado = NumeroRomano.Convertir(100);
+        resultado.Should().Be("C");
+    }
 }
 
