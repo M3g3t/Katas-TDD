@@ -8,6 +8,7 @@ public static class NumeroRomano
     private static Dictionary<short, char> _valores => new()
     {
         { 1000,'M'},
+        { 500, 'D'},
         { 100, 'C'},
         { 50, 'L'},
         { 10, 'X'},
