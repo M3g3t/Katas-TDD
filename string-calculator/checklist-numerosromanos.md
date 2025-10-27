@@ -2,7 +2,7 @@
 
  - [x] Si digito el numero 1 el sistema debe convertir a "I"
  - [x] Si digito el numero 2 el sistema debe convertir a "II"
- - [ ] Si digito el numero 3 el sistema debe convertir a "III"
+ - [x] Si digito el numero 3 el sistema debe convertir a "III"
  - [ ] Si digito el numero 10 el sistema debe convertir a "X"
  - [ ] Si digito el numero 20 el sistema debe convertir a "XX"
  - [ ] Si digito el numero 30 el sistema debe convertir a "XXX"

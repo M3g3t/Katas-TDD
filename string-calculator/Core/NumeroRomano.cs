@@ -4,12 +4,18 @@ public static class NumeroRomano
 {
     public static string Convertir(int numero)
     {
-        string r = "";
+        return ProcesarNumeroRomano(numero);
+    }
+
+    private static string ProcesarNumeroRomano(int numero)
+    {
+        string numeroRomano = string.Empty;
 
         for (int i = 1; i <= numero; i++)
-        {
-            r += "I";
-        }
-        return r;
+            numeroRomano += "I";
+
+        return numeroRomano;
     }
+
+
 }
