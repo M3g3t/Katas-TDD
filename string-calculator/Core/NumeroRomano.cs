@@ -28,25 +28,33 @@ public static class NumeroRomano
             return letra;
         
         StringBuilder numeroRomano = new StringBuilder();
-        
-        int decenas = numero / 10;
-        int unidades = numero % 10;
-        
-        for (int i = 0 ; i < decenas; i++)
-        {
-            numeroRomano.Append(char.Parse(_valores[10]));
-        }
-        
-        if(unidades > 0)
-            numeroRomano.Append(new string(char.Parse(_valores[1]), unidades));
+        ProcesarDecenas(numero, numeroRomano);
+        ProcesarUnidades(numero,numeroRomano);
         
         return numeroRomano.ToString();
     }
 
     private static string? ProcesarNumeroDirecto(short numero)
     {
-        if (_valores.TryGetValue(numero, out string letra)) return letra;
+        _valores.TryGetValue(numero, out string? letra);
+        return letra;
+    }
+    
+    private static void ProcesarDecenas(int numero, StringBuilder numeroRomanoSb)
+    {
+        int decenas = numero / 10;
+        
+        for (int i = 0 ; i < decenas; i++)
+        {
+            numeroRomanoSb.Append(char.Parse(_valores[10]));
+        }
+    }
 
-        return null;
+    private static void ProcesarUnidades(int numero, StringBuilder numeroRomanoSb)
+    {
+        int unidades = numero % 10;
+        
+        if(unidades > 0)
+            numeroRomanoSb.Append(new string(char.Parse(_valores[1]), unidades));
     }
 }

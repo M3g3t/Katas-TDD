@@ -14,7 +14,7 @@
  - [x] Si digito el numero 500 el sistema debe convertir a "D"
  
  - [x] Si digito el numero 4 el sistema debe convertir a "IV"
- - [ ] Si digito el numero 9 el sistema debe convertir a "IX"
+ - [x] Si digito el numero 9 el sistema debe convertir a "IX"
  - [ ] Si digito el numero 40 el sistema debe convertir a "XL"
  - [ ] Si digito el numero 90 el sistema debe convertir a "XC"
  - [ ] Si digito el numero 400 el sistema debe convertir a "CD"
