@@ -60,5 +60,13 @@ public class NumeroRomanoTests
         
         resultado.Should().Be("M");
     }
+
+    [Fact]
+    public void Si_Digito5ElSistema_Debe_ConvertirAV()
+    {
+        string resultado = NumeroRomano.Convertir(5);
+        
+        resultado.Should().Be("V");
+    }
 }
 
