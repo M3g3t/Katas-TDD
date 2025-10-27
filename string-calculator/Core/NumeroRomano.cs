@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace Core;
 
 public static class NumeroRomano
@@ -9,38 +11,20 @@ public static class NumeroRomano
 
     private static string ProcesarNumeroRomano(int numero)
     {
-        string numeroRomano = string.Empty;
+        StringBuilder numeroRomano = new StringBuilder();
 
-        numeroRomano = ProcesarDecena(numero);
-
-        if (!string.IsNullOrEmpty(numeroRomano)) return numeroRomano;
-
-        return ProcesarUnidades(numero);
-    }
-
-
-    private static string ProcesarDecena(int numero)
-    {
-        string numeroRomano = string.Empty;
-
-        for (int i = 1; i <= numero; i++)
+        int decenas = numero / 10;
+        int unidades = numero % 10;
+        
+        for (int i = 0 ; i < decenas; i++)
         {
-            if (i % 10 == 0)
-            {
-                numeroRomano += "X"; 
-            }
+            numeroRomano.Append("X");
         }
         
-        return numeroRomano;
-    }
-
-    private static string ProcesarUnidades(int numero)
-    {
-        string numeroRomano = string.Empty;
+        if(unidades > 0)
+            numeroRomano.Append(new string('I', unidades));
         
-        for (int i = 1; i <= numero; i++)
-            numeroRomano += "I";
-
-        return numeroRomano;
+        
+        return numeroRomano.ToString();
     }
 }
