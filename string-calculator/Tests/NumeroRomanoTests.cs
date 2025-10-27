@@ -61,5 +61,13 @@ public class NumeroRomanoTests
         
         resultado.Should().Be("IV");
     }
+
+    [Fact]
+    public void Si_Digito9ElSistema_DebeConvertirAIX()
+    {
+        string resultado = NumeroRomano.Convertir(9);
+        
+        resultado.Should().Be("IX");
+    }
 }
 
