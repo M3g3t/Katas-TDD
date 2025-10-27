@@ -1,7 +1,7 @@
 # Checklist (Numeros romanos)
 
  - [x] Si digito el numero 1 el sistema debe convertir a "I"
- - [ ] Si digito el numero 2 el sistema debe convertir a "II"
+ - [x] Si digito el numero 2 el sistema debe convertir a "II"
  - [ ] Si digito el numero 3 el sistema debe convertir a "III"
  - [ ] Si digito el numero 10 el sistema debe convertir a "X"
  - [ ] Si digito el numero 20 el sistema debe convertir a "XX"

@@ -1,6 +1,7 @@
 ﻿using AwesomeAssertions;
+using Core;
 
-namespace StringCalculator.Tests;
+namespace Core.Tests;
 
 public class CalculadoraTests
 {

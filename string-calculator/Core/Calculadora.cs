@@ -1,4 +1,4 @@
-namespace StringCalculator;
+namespace Core;
 
 public static class Calculadora
 {

@@ -1,10 +1,9 @@
-namespace StringCalculator;
+namespace Core;
 
 public static class NumeroRomano
 {
     public static string Convertir(int numero)
     {
-        if (numero == 2) return "II";
-        return "I";
+        return  numero == 2 ?  "II" : "I";
     }
 }
