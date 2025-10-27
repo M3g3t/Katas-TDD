@@ -38,7 +38,7 @@ public class NumeroRomanoTests
     }
 
     [Fact]
-    public void Si_Digito30_ElSistema_DebeConvertirAXXX()
+    public void Si_Digito30ElSistema_DebeConvertirAXXX()
     {
         string resultado = NumeroRomano.Convertir(30);
         
@@ -46,7 +46,7 @@ public class NumeroRomanoTests
     }
 
     [Fact]
-    public void Si_Digito100_ElSistema_DebeConvertirAC()
+    public void Si_Digito100ElSistema_DebeConvertirAC()
     {
         string resultado = NumeroRomano.Convertir(100);
         

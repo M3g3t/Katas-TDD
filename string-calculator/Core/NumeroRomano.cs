@@ -4,6 +4,14 @@ namespace Core;
 
 public static class NumeroRomano
 {
+
+    private static Dictionary<int, char> _valores => new()
+    {
+        { 1000,'M'},
+        { 100, 'C'},
+        { 10, 'X'},
+        { 1, 'I'}
+    };
     public static string Convertir(int numero)
     {
         return ProcesarNumeroRomano(numero);
@@ -11,8 +19,7 @@ public static class NumeroRomano
 
     private static string ProcesarNumeroRomano(int numero)
     {
-        if (numero == 100) return "C";
-        if (numero == 1000) return "M";
+        if (_valores.TryGetValue(numero, out char letra)) return letra.ToString();
         
         StringBuilder numeroRomano = new StringBuilder();
         
@@ -21,11 +28,11 @@ public static class NumeroRomano
         
         for (int i = 0 ; i < decenas; i++)
         {
-            numeroRomano.Append("X");
+            numeroRomano.Append(_valores.GetValueOrDefault(10));
         }
         
         if(unidades > 0)
-            numeroRomano.Append(new string('I', unidades));
+            numeroRomano.Append(new string(_valores.GetValueOrDefault(1), unidades));
         
         return numeroRomano.ToString();
     }

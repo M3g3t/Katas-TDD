@@ -7,7 +7,7 @@
  - [x] Si digito el numero 20 el sistema debe convertir a "XX"
  - [x] Si digito el numero 30 el sistema debe convertir a "XXX"
  - [x] Si digito el numero 100 el sistema debe convertir a "C"
- - [ ] Si digito el numero 1000 el sistema debe convertir a "M"
+ - [x] Si digito el numero 1000 el sistema debe convertir a "M"
   
  - [ ] Si digito el numero 5 el sistema debe convertir a "V"
  - [ ] Si digito el numero 50 el sistema debe convertir a "L"
