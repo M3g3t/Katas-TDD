@@ -11,10 +11,10 @@ public static class NumeroRomano
 
     private static string ProcesarNumeroRomano(int numero)
     {
-        StringBuilder numeroRomano = new StringBuilder();
-
         if (numero == 100) return "C";
-
+        
+        StringBuilder numeroRomano = new StringBuilder();
+        
         int decenas = numero / 10;
         int unidades = numero % 10;
         
@@ -25,7 +25,6 @@ public static class NumeroRomano
         
         if(unidades > 0)
             numeroRomano.Append(new string('I', unidades));
-        
         
         return numeroRomano.ToString();
     }
