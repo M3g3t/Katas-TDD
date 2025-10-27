@@ -54,28 +54,15 @@ public class NumeroRomanoTests
         resultado.Should().Be(esperado);
     }
 
-    [Fact]
-    public void Si_Digito4ElSistema_DebeConvertirAIV()
+    [Theory]
+    [InlineData(4,"IV")]
+    [InlineData(9,"IX")]
+    [InlineData(40,"XL")]
+    public void Si_DigitoNumeroQueRequiereSustracion_DebeConvertirALaLetraCorrespondiente(short numero, string esperado)
     {
-        string resultado = NumeroRomano.Convertir(4);
+        string resultado = NumeroRomano.Convertir(numero);
         
-        resultado.Should().Be("IV");
-    }
-
-    [Fact]
-    public void Si_Digito9ElSistema_DebeConvertirAIX()
-    {
-        string resultado = NumeroRomano.Convertir(9);
-        
-        resultado.Should().Be("IX");
-    }
-
-    [Fact]
-    public void Si_Digito40ElSistema_DebeConvertirXL()
-    {
-        string resultado = NumeroRomano.Convertir(40);
-        
-        resultado.Should().Be("XL");
+        resultado.Should().Be(esperado);
     }
 }
 
