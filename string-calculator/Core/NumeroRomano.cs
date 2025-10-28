@@ -5,6 +5,8 @@ namespace Core;
 public static class NumeroRomano
 {
     private static StringBuilder? _numeroRomanoSb;
+
+    private static short _numeroAConvertir;
     
     private static (short numero, string letra)[] _valores =>
     [
@@ -24,28 +26,32 @@ public static class NumeroRomano
     ];
     public static string Convertir(short numero)
     {
+        ValidarNumero();
+        _numeroAConvertir = numero;
         _numeroRomanoSb = new();
         
-        if (numero ==  1000)
-            throw new ArgumentException();
-        
-        if (ProcesarNumeroDirecto(numero) is string letra)
+        if (ProcesarNumeroDirecto() is string letra)
             return letra;
 
-        IterarNumero(numero);
-        
+        IterarNumero();
         return _numeroRomanoSb.ToString();
     }
 
-    private static string? ProcesarNumeroDirecto(short numero)
+    private static string? ProcesarNumeroDirecto()
     {
-        var valor = _valores.FirstOrDefault(v => v.numero == numero);
+        var valor = _valores.FirstOrDefault(v => v.numero == _numeroAConvertir);
         return valor.letra;
     }
 
-    private static void IterarNumero(short numero)
+    private static void ValidarNumero()
     {
-        short numeroProcesado = numero;
+        if (_numeroAConvertir ==  1000)
+            throw new ArgumentException();
+    }
+
+    private static void IterarNumero()
+    {
+        short numeroProcesado = _numeroAConvertir;
         while (numeroProcesado is not 0)
         {
             foreach (var val in _valores)

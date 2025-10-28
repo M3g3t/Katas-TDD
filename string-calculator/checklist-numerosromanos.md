@@ -19,13 +19,12 @@
  - [x] Si digito el numero 90 el sistema debe convertir a "XC"
  - [x] Si digito el numero 400 el sistema debe convertir a "CD"
  - [x] Si digito el numero 900 el sistema debe convertir a "CM"
-  
 
  - [x] Si digito el numero 7 el sistema debe convertir a "VII"    
  - [x] Si digito el numero 48 el sistema debe convertir a "XLVIII"
  - [x] Si digito el numero 63 el sistema debe convertir a "LXIII"
 
- - [ ] Si digito numero mayor a 1000 el sistema debe lanzar a excepcion por rango de numero no valido
+ - [x] Si digito numero mayor a 1000 el sistema debe lanzar a excepcion por rango de numero no valido
  - [ ] Si digito numero menor o igual a 0 el sistema debe lanzar a excepcion por rango de numero no valido
  - [ ] Si el sistema repite mas de 3 veces el simbolo "I" o "X" debe lanzar excepcion
  - [ ] Si el sistema retorna dos veces un simbolo de base 5 ("V,L,D") debe lanzar excepcion
