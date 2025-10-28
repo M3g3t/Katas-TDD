@@ -58,6 +58,7 @@ public class NumeroRomanoTests
     [InlineData(4,"IV")]
     [InlineData(9,"IX")]
     [InlineData(40,"XL")]
+    [InlineData(90,"XC")]
     public void Si_DigitoNumeroQueRequiereSustracion_DebeConvertirALaLetraCorrespondiente(short numero, string esperado)
     {
         string resultado = NumeroRomano.Convertir(numero);
