@@ -4,7 +4,7 @@ namespace Core;
 
 public static class NumeroRomano
 {
-
+    private static StringBuilder? _numeroRomanoSb;
     private static Dictionary<short, string> _valores => new()
     {
         { 1000,"M"},
@@ -22,19 +22,15 @@ public static class NumeroRomano
     };
     public static string Convertir(short numero)
     {
-        return ProcesarNumeroRomano(numero);
-    }
-
-    private static string ProcesarNumeroRomano(short numero)
-    {
+        _numeroRomanoSb = new();
+        
         if (ProcesarNumeroDirecto(numero) is string letra)
             return letra;
         
-        StringBuilder numeroRomano = new StringBuilder();
-        ProcesarDecenas(numero, numeroRomano);
-        ProcesarUnidades(numero,numeroRomano);
+        ProcesarDecenas(numero);
+        ProcesarUnidades(numero);
         
-        return numeroRomano.ToString();
+        return _numeroRomanoSb.ToString();
     }
 
     private static string? ProcesarNumeroDirecto(short numero)
@@ -43,21 +39,21 @@ public static class NumeroRomano
         return letra;
     }
     
-    private static void ProcesarDecenas(int numero, StringBuilder numeroRomanoSb)
+    private static void ProcesarDecenas(int numero)
     {
         int decenas = numero / 10;
         
         for (int i = 0 ; i < decenas; i++)
         {
-            numeroRomanoSb.Append(char.Parse(_valores[10]));
+            _numeroRomanoSb.Append(char.Parse(_valores[10]));
         }
     }
 
-    private static void ProcesarUnidades(int numero, StringBuilder numeroRomanoSb)
+    private static void ProcesarUnidades(int numero)
     {
         int unidades = numero % 10;
         
         if(unidades > 0)
-            numeroRomanoSb.Append(new string(char.Parse(_valores[1]), unidades));
+            _numeroRomanoSb.Append(new string(char.Parse(_valores[1]), unidades));
     }
 }
