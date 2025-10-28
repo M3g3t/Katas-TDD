@@ -26,6 +26,9 @@ public static class NumeroRomano
     {
         _numeroRomanoSb = new();
         
+        if (numero ==  1000)
+            throw new ArgumentException();
+        
         if (ProcesarNumeroDirecto(numero) is string letra)
             return letra;
 
