@@ -23,10 +23,7 @@
 
  - [x] Si digito el numero 7 el sistema debe convertir a "VII"    
  - [x] Si digito el numero 48 el sistema debe convertir a "XLVIII"
- - [ ] Si digito el numero 63 el sistema debe convertir a "LXIII"
- - [ ] Si digito el numero 122 el sistema debe convertir a "CXXII"
- - [ ] Si digito el numero 528 el sistema debe convertir a "DXXVIII"
-  
+ - [x] Si digito el numero 63 el sistema debe convertir a "LXIII"
 
  - [ ] Si digito numero mayor a 1000 el sistema debe lanzar a excepcion por rango de numero no valido
  - [ ] Si digito numero menor o igual a 0 el sistema debe lanzar a excepcion por rango de numero no valido
