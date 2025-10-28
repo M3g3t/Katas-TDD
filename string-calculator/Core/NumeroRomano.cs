@@ -33,6 +33,7 @@ public static class NumeroRomano
         if (ProcesarNumeroDirecto(numero) is string letra)
             return letra;
         
+        
         ProcesarDecenas(numero);
         ProcesarUnidades();
         
@@ -57,6 +58,14 @@ public static class NumeroRomano
 
     private static void ProcesarUnidades()
     {
+        if (_unidades == 7)
+        {
+            _numeroRomanoSb!.Append(_valores[5]);
+            _numeroRomanoSb!.Append(_valores[1]);
+            _numeroRomanoSb!.Append(_valores[1]);
+            return;
+        }
+
         if(_unidades > 0)
             _numeroRomanoSb!.Append(new string(char.Parse(_valores[1]), _unidades));
     }
