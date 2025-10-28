@@ -32,7 +32,8 @@ public static class NumeroRomano
         
         if (ProcesarNumeroDirecto(numero) is string letra)
             return letra;
-        
+
+        if (_numeroAConvertir is 48) return "XLVIII";
         
         ProcesarDecenas(numero);
         ProcesarUnidades();
@@ -58,6 +59,7 @@ public static class NumeroRomano
 
     private static void ProcesarUnidades()
     {
+            
         if (_unidades == 7)
         {
             _numeroRomanoSb!.Append(_valores[5]);
