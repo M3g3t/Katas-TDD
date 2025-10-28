@@ -67,5 +67,14 @@ public class NumeroRomanoTests
         
         resultado.Should().Be(esperado);
     }
+
+
+    [Fact]
+    public void Si_Digito7ElSistema_DebeConvertirAVII()
+    {
+        string resultado = NumeroRomano.Convertir(7);
+        
+        resultado.Should().Be("VII");
+    }
 }
 
