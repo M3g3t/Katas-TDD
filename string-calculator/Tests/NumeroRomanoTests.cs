@@ -84,5 +84,13 @@ public class NumeroRomanoTests
         
         resultado.Should().Be("XLVIII");
     }
+
+    [Fact]
+    public void SiDigito63ElSistema_DebeConvertirALXIII()
+    {
+        string resultado = NumeroRomano.Convertir(63);
+        
+        resultado.Should().Be("XLIII");
+    }
 }
 
