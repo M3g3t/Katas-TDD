@@ -16,7 +16,7 @@
  - [x] Si digito el numero 4 el sistema debe convertir a "IV"
  - [x] Si digito el numero 9 el sistema debe convertir a "IX"
  - [x] Si digito el numero 40 el sistema debe convertir a "XL"
- - [ ] Si digito el numero 90 el sistema debe convertir a "XC"
+ - [x] Si digito el numero 90 el sistema debe convertir a "XC"
  - [ ] Si digito el numero 400 el sistema debe convertir a "CD"
  - [ ] Si digito el numero 900 el sistema debe convertir a "CM"
   
