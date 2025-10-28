@@ -76,5 +76,13 @@ public class NumeroRomanoTests
         
         resultado.Should().Be("VII");
     }
+
+    [Fact]
+    public void Si_Digito48ElSistema_DebeConvertirAXLVIII()
+    {
+        string resultado = NumeroRomano.Convertir(48);
+        
+        resultado.Should().Be("XLVIII");
+    }
 }
 
