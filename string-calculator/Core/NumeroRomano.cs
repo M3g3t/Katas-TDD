@@ -52,7 +52,7 @@ public static class NumeroRomano
         
         for (int i = 0 ; i < decenas; i++)
         {
-            _numeroRomanoSb!.Append(char.Parse(_valores[10]));
+            _numeroRomanoSb!.Append(_valores[10]);
         }
     }
 
