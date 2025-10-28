@@ -90,7 +90,15 @@ public class NumeroRomanoTests
     {
         string resultado = NumeroRomano.Convertir(63);
         
-        resultado.Should().Be("XLIII");
+        resultado.Should().Be("LXIII");
+    }
+
+    [Fact]
+    public void Si_Digito1000ElSistema_DebeLanzarExcepcion()
+    {
+        Action caller = () => NumeroRomano.Convertir(1000);
+
+        caller.Should().ThrowExactly<ArgumentException>();
     }
 }
 
