@@ -18,9 +18,10 @@
  - [x] Si digito el numero 40 el sistema debe convertir a "XL"
  - [x] Si digito el numero 90 el sistema debe convertir a "XC"
  - [x] Si digito el numero 400 el sistema debe convertir a "CD"
- - [ ] Si digito el numero 900 el sistema debe convertir a "CM"
+ - [x] Si digito el numero 900 el sistema debe convertir a "CM"
   
-    
+
+ - [ ] Si digito el numero 7 el sistema debe convertir a "VII"    
  - [ ] Si digito el numero 17 el sistema debe convertir a "XVII"
  - [ ] Si digito el numero 48 el sistema debe convertir a "XLVIII"
  - [ ] Si digito el numero 63 el sistema debe convertir a "LXIII"
