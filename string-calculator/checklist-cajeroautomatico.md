@@ -9,7 +9,7 @@
 - [x] Si retiro 10, debe mostrar como salida 1 billete de  valor  10
 - [x] Si retiro 20, debe mostrar como salida 1 billete de  valor  20
 - [x] Si retiro 50, debe mostrar como salida 1 billete de  valor  50
-- [ ] Si retiro 100, debe mostrar como salida 1 billete de  valor  100
+- [x] Si retiro 100, debe mostrar como salida 1 billete de  valor  100
 - [ ] Si retiro 200, debe mostrar como salida 1 billete de  valor  200
 - [ ] Si retiro 500, debe mostrar como salida 1 billete de  valor  500
   
