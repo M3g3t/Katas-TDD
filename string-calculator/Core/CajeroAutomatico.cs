@@ -18,6 +18,7 @@ public class CajeroAutomatico
             20 => "1 billete de valor 20",
             50 => "1 billete de valor 50",
             100 => "1 billete de valor 100",
+            200 => "1 billete de valor 200",
             _ => "1 moneda de valor 1"
         };
 
