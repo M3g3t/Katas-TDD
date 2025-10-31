@@ -54,4 +54,15 @@ public class CajeroAutomaticoTests
 
         salida.Should().Be("1 billete de valor 10");
     }
+
+    [Fact]
+    public void Si_Retiro20ElCajeroAutomatico_DebeMostrarComoSalida1BilleteDeValor20()
+    {
+        
+        CajeroAutomatico cajeroAutomatico = new();
+
+        var salida = cajeroAutomatico.Retirar(20);
+
+        salida.Should().Be("1 billete de valor 20");
+    }
 }
