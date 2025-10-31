@@ -22,6 +22,7 @@ public class CajeroAutomaticoTests
     [InlineData(20,"1 billete de valor 20")]
     [InlineData(50,"1 billete de valor 50")]
     [InlineData(100,"1 billete de valor 100")]
+    [InlineData(200,"1 billete de valor 200")]
     public void Si_RetiroValorDelCajeroAutomaticoQueCorrepondaAUnaSolaUnidad_DebeMostrarComoSalidaUnaUnidadConSuValorCorrespondiente(int valorARetirar, string valorEsperado)
     {
         CajeroAutomatico cajeroAutomatico = new();
