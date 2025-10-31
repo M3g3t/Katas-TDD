@@ -13,56 +13,19 @@ public class CajeroAutomaticoTests
 
         dineroDisponible.Should().Be(5100);
     }
-
-    [Fact]
-    public void Si_Retiro1ElCajeroAutomatico_DebeMostrarComoSalida1MonedaDeValor1()
+    
+    [Theory]
+    [InlineData(1,"1 moneda de valor 1")]
+    [InlineData(2,"1 moneda de valor 2")]
+    [InlineData(5,"1 billete de valor 5")]
+    [InlineData(10,"1 billete de valor 10")]
+    [InlineData(20,"1 billete de valor 20")]
+    public void Si_RetiroValorDelCajeroAutomaticoQueCorrepondaAUnaSolaUnidad_DebeMostrarComoSalidaUnaUnidadConSuValorCorrespondiente(int valorARetirar, string valorEsperado)
     {
         CajeroAutomatico cajeroAutomatico = new();
 
-        var salida = cajeroAutomatico.Retirar(1);
+        var salida = cajeroAutomatico.Retirar(valorARetirar);
 
-        salida.Should().Be("1 moneda de valor 1");
-    }
-
-
-    [Fact]
-    public void Si_Retiro2ElCajeroAutomatico_DebeMostrarComoSalida1MonedaDeValor2()
-    {
-        CajeroAutomatico cajeroAutomatico = new();
-
-        var salida = cajeroAutomatico.Retirar(2);
-
-        salida.Should().Be("1 moneda de valor 2");
-    }
-
-    [Fact]
-    public void Si_Retiro5ElCajeroAutomatico_DebeMostrarComoSalida1BilleteDeValor5()
-    {
-        CajeroAutomatico cajeroAutomatico = new();
-
-        var salida = cajeroAutomatico.Retirar(5);
-
-        salida.Should().Be("1 billete de valor 5");
-    }
-
-    [Fact]
-    public void Si_Retiro10ElCajeroAutomatico_DebeMostrarComoSalida1BilleteDeValor10()
-    {
-        CajeroAutomatico cajeroAutomatico = new();
-
-        var salida = cajeroAutomatico.Retirar(10);
-
-        salida.Should().Be("1 billete de valor 10");
-    }
-
-    [Fact]
-    public void Si_Retiro20ElCajeroAutomatico_DebeMostrarComoSalida1BilleteDeValor20()
-    {
-        
-        CajeroAutomatico cajeroAutomatico = new();
-
-        var salida = cajeroAutomatico.Retirar(20);
-
-        salida.Should().Be("1 billete de valor 20");
+        salida.Should().Be(valorEsperado);
     }
 }
