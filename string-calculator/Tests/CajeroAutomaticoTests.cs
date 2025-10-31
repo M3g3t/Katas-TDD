@@ -20,12 +20,13 @@ public class CajeroAutomaticoTests
     [InlineData(5,"1 billete de valor 5")]
     [InlineData(10,"1 billete de valor 10")]
     [InlineData(20,"1 billete de valor 20")]
+    [InlineData(50,"1 billete de valor 50")]
     public void Si_RetiroValorDelCajeroAutomaticoQueCorrepondaAUnaSolaUnidad_DebeMostrarComoSalidaUnaUnidadConSuValorCorrespondiente(int valorARetirar, string valorEsperado)
     {
         CajeroAutomatico cajeroAutomatico = new();
 
         var salida = cajeroAutomatico.Retirar(valorARetirar);
-
+   
         salida.Should().Be(valorEsperado);
     }
 }
