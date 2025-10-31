@@ -6,13 +6,17 @@ public class CajeroAutomatico
 
     public string Retirar(int dineroARetirar)
     {
-        if(dineroARetirar == 2)
-            return "1 moneda de valor 2";
-        
-        if(dineroARetirar == 5)
-            return "1 billete de valor 5";
-        
-        return "1 moneda de valor 1";
+        return ProcesarDineroARetirar(dineroARetirar);
+    }
+
+    private static string ProcesarDineroARetirar(int dineroARetirar)
+    {
+        return dineroARetirar switch
+        {
+            2 => "1 moneda de valor 2",
+            5 => "1 billete de valor 5",
+            _ => "1 moneda de valor 1"
+        };
     }
 
 
