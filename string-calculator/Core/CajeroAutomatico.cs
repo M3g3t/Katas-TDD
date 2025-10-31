@@ -9,6 +9,9 @@ public class CajeroAutomatico
         if(dineroARetirar == 2)
             return "1 moneda de valor 2";
         
+        if(dineroARetirar == 5)
+            return "1 billete de valor 5";
+        
         return "1 moneda de valor 1";
     }
 
