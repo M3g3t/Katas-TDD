@@ -15,8 +15,7 @@
   
   
 ## Casos complejos 
-- [ ] Si retiro 1000, el valor disponible del cajero debe ser 4100
-- [ ] Si retiro 1500, el valor disponible del cajero debe ser 3600
+- [x] Si retiro 1000, el valor disponible del cajero debe ser 4100
 - [ ] Si retiro 1000, debe mostrar como salida 2 billetes de valor  500
 - [ ] Si retiro 1000, no deben quedar billetes de valor 500
 - [ ] Si retiro 1000 y vuelvo a retirar 600, no debe quedar billetes con valor de 500 y 200
