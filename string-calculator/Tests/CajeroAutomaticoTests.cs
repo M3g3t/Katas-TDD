@@ -32,4 +32,14 @@ public class CajeroAutomaticoTests
    
         salida.Should().Be(valorEsperado);
     }
+
+    [Fact]
+    public void Si_RetiroValor1000DeCajeroAutomatico_DebeQuedar4100ComoValorDisponible()
+    {
+        CajeroAutomatico cajeroAutomatico = new();
+
+        cajeroAutomatico.Retirar(1000);
+
+        cajeroAutomatico.ConsultarDineroDisponible().Should().Be(4100);
+    }
 }
