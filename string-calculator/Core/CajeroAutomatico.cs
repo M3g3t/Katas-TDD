@@ -4,7 +4,20 @@ public class CajeroAutomatico
 {
     private int _dineroDisponible { get; set; } = 5100;
 
-    public string Retirar(int dineroARetirar)
+    private static Dictionary<int, string> _unidades = new()
+    {
+        { 500, "1 billete de valor 500" },
+        { 200, "1 billete de valor 200" },
+        { 100, "1 billete de valor 100" },
+        { 50, "1 billete de valor 50" },
+        { 20, "1 billete de valor 20" },
+        { 10, "1 billete de valor 10" },
+        { 5, "1 billete de valor 5" },
+        { 2, "1 moneda de valor 2" },
+        { 1, "1 moneda de valor 1" }
+    };
+
+    public List<string> Retirar(int dineroARetirar)
     {
         DescontarDineroDisponible(dineroARetirar);
         return ProcesarDineroARetirar(dineroARetirar);
@@ -15,19 +28,23 @@ public class CajeroAutomatico
         _dineroDisponible -= dineroARetirar;
     }
 
-    private static string ProcesarDineroARetirar(int dineroARetirar)
-        => dineroARetirar switch
+    private static List<string> ProcesarDineroARetirar(int dineroARetirar)
+    {
+        List<string> unidadesRetiradas = new();
+        while (dineroARetirar is not 0)
         {
-            2 => "1 moneda de valor 2",
-            5 => "1 billete de valor 5",
-            10 => "1 billete de valor 10",
-            20 => "1 billete de valor 20",
-            50 => "1 billete de valor 50",
-            100 => "1 billete de valor 100",
-            200 => "1 billete de valor 200",
-            500 => "1 billete de valor 500",
-            _ => "1 moneda de valor 1"
-        };
+            foreach (var unidad in _unidades)
+            {
+                if (dineroARetirar > unidad.Key || dineroARetirar == unidad.Key)
+                {
+                    unidadesRetiradas.Add(unidad.Value);
+                    dineroARetirar -= unidad.Key;
+                }
+            }    
+        }
+        
+        return unidadesRetiradas;
+    }
 
 
     public int ConsultarDineroDisponible()
