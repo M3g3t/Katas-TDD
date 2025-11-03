@@ -42,4 +42,15 @@ public class CajeroAutomaticoTests
 
         cajeroAutomatico.ConsultarDineroDisponible().Should().Be(4100);
     }
+
+    [Fact]
+    public void Si_RetiroValor700DeCajeroAutomatico_Debe_MostrarComoSalida1BilleteDe500YUnBilleteDe200()
+    {
+        CajeroAutomatico cajeroAutomatico = new();
+
+        var salida = cajeroAutomatico.Retirar(700);
+
+        salida.Should().BeEquivalentTo(new List<string>(){"1 billete de valor 500","1 billete de valor 200"});
+
+    }
 }
