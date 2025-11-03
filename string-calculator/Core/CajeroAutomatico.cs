@@ -6,6 +6,7 @@ public class CajeroAutomatico
 
     public string Retirar(int dineroARetirar)
     {
+        _dineroDisponible -= dineroARetirar;
         return ProcesarDineroARetirar(dineroARetirar);
     }
 
