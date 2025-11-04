@@ -17,19 +17,19 @@ public class CajeroAutomatico
     private int _dineroDisponible { get; set; } = 5100;
     private int _dineroARetirar { get; set; } = 0;
     private List<string> _mensajesUnidadesRetiradas { get; set; } = new();
-    private Dictionary<int,DetalleUnidad> _unidadesRetiradas { get; set; } = new();
-    
+    private Dictionary<int, DetalleUnidad> _unidadesRetiradas { get; set; } = new();
+
     private static Dictionary<int, DetalleUnidad> _unidades = new()
     {
-        { 500, new()  {Tipo = TipoUnidad.Billete}},
-        { 200,new()  {Tipo = TipoUnidad.Billete}},
-        { 100,new()  {Tipo = TipoUnidad.Billete} },
-        { 50, new()  {Tipo = TipoUnidad.Billete} },
-        { 20,new()  {Tipo = TipoUnidad.Billete} },
-        { 10, new()  {Tipo = TipoUnidad.Billete}},
-        { 5, new()  {Tipo = TipoUnidad.Billete} },
-        { 2, new()  {Tipo = TipoUnidad.Moneda} },
-        { 1, new()  {Tipo = TipoUnidad.Moneda} }
+        { 500, new() { Tipo = TipoUnidad.Billete } },
+        { 200, new() { Tipo = TipoUnidad.Billete } },
+        { 100, new() { Tipo = TipoUnidad.Billete } },
+        { 50, new() { Tipo = TipoUnidad.Billete } },
+        { 20, new() { Tipo = TipoUnidad.Billete } },
+        { 10, new() { Tipo = TipoUnidad.Billete } },
+        { 5, new() { Tipo = TipoUnidad.Billete } },
+        { 2, new() { Tipo = TipoUnidad.Moneda } },
+        { 1, new() { Tipo = TipoUnidad.Moneda } }
     };
 
     public List<string> Retirar(int dineroARetirar)
@@ -52,21 +52,26 @@ public class CajeroAutomatico
             {
                 if (HayDineroPorRetirar(_dineroARetirar, unidad.Key))
                 {
-                    if (_unidadesRetiradas.TryGetValue(unidad.Key, out DetalleUnidad? detalle))
-                        detalle.Cantidad++;
-                    else
-                        _unidadesRetiradas[unidad.Key] = new() { Tipo = unidad.Value.Tipo, Cantidad = 1 };
-                    
+                    AcomularDineroARetirar(unidad);
                     ActualizarSaldos(unidad.Key);
                     break;
                 }
             }
         }
-        AgregarUnidadesRetiradas();
+
+        AgregarMensajesUnidadesRetiradas();
         return _mensajesUnidadesRetiradas;
     }
 
-    private void AgregarUnidadesRetiradas()
+    private void AcomularDineroARetirar(KeyValuePair<int, DetalleUnidad> unidad)
+    {
+        if (_unidadesRetiradas.TryGetValue(unidad.Key, out DetalleUnidad? detalle))
+            detalle.Cantidad++;
+        else
+            _unidadesRetiradas[unidad.Key] = new() { Tipo = unidad.Value.Tipo, Cantidad = 1 };
+    }
+
+    private void AgregarMensajesUnidadesRetiradas()
     {
         foreach (var unidadRetirada in _unidadesRetiradas)
         {
@@ -81,7 +86,7 @@ public class CajeroAutomatico
     {
         return dineroARetirar > unidad || dineroARetirar == unidad;
     }
-    
+
     public int ConsultarDineroDisponible()
     {
         return _dineroDisponible;
