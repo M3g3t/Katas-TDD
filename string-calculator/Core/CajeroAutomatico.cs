@@ -3,6 +3,8 @@ namespace Core.Tests;
 public class CajeroAutomatico
 {
     private int _dineroDisponible { get; set; } = 5100;
+    private int _dineroARetirar { get; set; } = 0;
+    private List<string> _unidadesRetiradas { get; set; } = new();
 
     private static Dictionary<int, string> _unidades = new()
     {
@@ -19,31 +21,41 @@ public class CajeroAutomatico
 
     public List<string> Retirar(int dineroARetirar)
     {
-        DescontarDineroDisponible(dineroARetirar);
-        return ProcesarDineroARetirar(dineroARetirar);
+        _dineroARetirar = dineroARetirar;
+        return ProcesarDineroARetirar();
     }
 
-    private void DescontarDineroDisponible(int dineroARetirar)
+    private void ActualizarSaldos(int dineroARetirar)
     {
         _dineroDisponible -= dineroARetirar;
+        _dineroARetirar -= dineroARetirar;
     }
 
-    private static List<string> ProcesarDineroARetirar(int dineroARetirar)
+    private List<string> ProcesarDineroARetirar()
     {
-        List<string> unidadesRetiradas = new();
-        while (dineroARetirar is not 0)
+        while (_dineroARetirar is not 0)
         {
             foreach (var unidad in _unidades)
             {
-                if (dineroARetirar > unidad.Key || dineroARetirar == unidad.Key)
+                if (HayDineroPorRetirar(_dineroARetirar, unidad.Key))
                 {
-                    unidadesRetiradas.Add(unidad.Value);
-                    dineroARetirar -= unidad.Key;
+                    AgregarUnidadesRetiradas(unidad.Value);
+                    ActualizarSaldos(unidad.Key);
                 }
-            }    
+            }
         }
-        
-        return unidadesRetiradas;
+
+        return _unidadesRetiradas;
+    }
+
+    private void AgregarUnidadesRetiradas(string unidadRetirada)
+    {
+        _unidadesRetiradas.Add(unidadRetirada);
+    }
+
+    private static bool HayDineroPorRetirar(int dineroARetirar, int unidad)
+    {
+        return dineroARetirar > unidad || dineroARetirar == unidad;
     }
 
 
