@@ -65,4 +65,16 @@ public class CajeroAutomaticoTests
         salida.Should().HaveCount(1);
         salida.Should().BeEquivalentTo(new List<string> { "2 billetes de valor 500" });
     }
+
+    [Fact]
+    public void Si_RetiroValor100DeCajeroAutomatico_Debe_0BilletesDe500()
+    {
+        CajeroAutomatico cajeroAutomatico = new();
+        
+        cajeroAutomatico.Retirar(1000);
+
+        var cantidadDisponible = cajeroAutomatico.ObtenerCantidadUnidad(500);
+
+        cantidadDisponible.Should().Be(0);
+    }
 }
