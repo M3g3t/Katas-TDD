@@ -70,11 +70,26 @@ public class CajeroAutomaticoTests
     public void Si_RetiroValor1000DeCajeroAutomatico_Debe_Quedar0BilletesDe500()
     {
         CajeroAutomatico cajeroAutomatico = new();
-        
+
         cajeroAutomatico.Retirar(1000);
 
         var cantidadDisponible = cajeroAutomatico.ObtenerCantidadUnidad(500);
 
         cantidadDisponible.Should().Be(0);
+    }
+
+    [Fact]
+    public void Si_RetiroValor1200DeCajeroAutomatico_Debe_Quedar0BilletesDe500Y2BilletesDe200()
+    {
+        CajeroAutomatico cajeroAutomatico = new();
+
+        cajeroAutomatico.Retirar(1000);
+        cajeroAutomatico.Retirar(200);
+
+        var cantidadDisponibleUnidad500 = cajeroAutomatico.ObtenerCantidadUnidad(500);
+        var cantidadDisponibleUnidad200 = cajeroAutomatico.ObtenerCantidadUnidad(200);
+
+        cantidadDisponibleUnidad500.Should().Be(0);
+        cantidadDisponibleUnidad200.Should().Be(2);
     }
 }
