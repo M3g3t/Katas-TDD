@@ -1,22 +1,35 @@
 namespace Core.Tests;
 
+public class DetalleUnidad
+{
+    public TipoUnidad Tipo { get; set; }
+    public int? Cantidad { get; set; }
+}
+
+public enum TipoUnidad
+{
+    Billete,
+    Moneda
+}
+
 public class CajeroAutomatico
 {
     private int _dineroDisponible { get; set; } = 5100;
     private int _dineroARetirar { get; set; } = 0;
-    private List<string> _unidadesRetiradas { get; set; } = new();
-
-    private static Dictionary<int, string> _unidades = new()
+    private List<string> _mensajesUnidadesRetiradas { get; set; } = new();
+    private Dictionary<int,DetalleUnidad> _unidadesRetiradas { get; set; } = new();
+    
+    private static Dictionary<int, DetalleUnidad> _unidades = new()
     {
-        { 500, "1 billete de valor 500" },
-        { 200, "1 billete de valor 200" },
-        { 100, "1 billete de valor 100" },
-        { 50, "1 billete de valor 50" },
-        { 20, "1 billete de valor 20" },
-        { 10, "1 billete de valor 10" },
-        { 5, "1 billete de valor 5" },
-        { 2, "1 moneda de valor 2" },
-        { 1, "1 moneda de valor 1" }
+        { 500, new()  {Tipo = TipoUnidad.Billete}},
+        { 200,new()  {Tipo = TipoUnidad.Billete}},
+        { 100,new()  {Tipo = TipoUnidad.Billete} },
+        { 50, new()  {Tipo = TipoUnidad.Billete} },
+        { 20,new()  {Tipo = TipoUnidad.Billete} },
+        { 10, new()  {Tipo = TipoUnidad.Billete}},
+        { 5, new()  {Tipo = TipoUnidad.Billete} },
+        { 2, new()  {Tipo = TipoUnidad.Moneda} },
+        { 1, new()  {Tipo = TipoUnidad.Moneda} }
     };
 
     public List<string> Retirar(int dineroARetirar)
@@ -39,26 +52,36 @@ public class CajeroAutomatico
             {
                 if (HayDineroPorRetirar(_dineroARetirar, unidad.Key))
                 {
-                    AgregarUnidadesRetiradas(unidad.Value);
+                    if (_unidadesRetiradas.TryGetValue(unidad.Key, out DetalleUnidad? detalle))
+                        detalle.Cantidad++;
+                    else
+                        _unidadesRetiradas[unidad.Key] = new() { Tipo = unidad.Value.Tipo, Cantidad = 1 };
+                    
                     ActualizarSaldos(unidad.Key);
+                    break;
                 }
             }
         }
-
-        return _unidadesRetiradas;
+        AgregarUnidadesRetiradas();
+        return _mensajesUnidadesRetiradas;
     }
 
-    private void AgregarUnidadesRetiradas(string unidadRetirada)
+    private void AgregarUnidadesRetiradas()
     {
-        _unidadesRetiradas.Add(unidadRetirada);
+        foreach (var unidadRetirada in _unidadesRetiradas)
+        {
+            DetalleUnidad detalle = unidadRetirada.Value;
+            string letraPlural = detalle.Cantidad > 1 ? "s" : string.Empty;
+            string tipoUnidad = $"{(detalle.Tipo.Equals(TipoUnidad.Moneda) ? "moneda" : "billete")}{letraPlural}";
+            _mensajesUnidadesRetiradas.Add($"{detalle.Cantidad} {tipoUnidad} de valor {unidadRetirada.Key}");
+        }
     }
 
     private static bool HayDineroPorRetirar(int dineroARetirar, int unidad)
     {
         return dineroARetirar > unidad || dineroARetirar == unidad;
     }
-
-
+    
     public int ConsultarDineroDisponible()
     {
         return _dineroDisponible;
