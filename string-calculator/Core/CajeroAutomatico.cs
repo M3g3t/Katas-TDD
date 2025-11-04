@@ -91,4 +91,9 @@ public class CajeroAutomatico
     {
         return _dineroDisponible;
     }
+
+    public object ObtenerCantidadUnidad(int i)
+    {
+        return 0;
+    }
 }
