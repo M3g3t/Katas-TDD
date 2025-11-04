@@ -67,7 +67,7 @@ public class CajeroAutomaticoTests
     }
 
     [Fact]
-    public void Si_RetiroValor100DeCajeroAutomatico_Debe_0BilletesDe500()
+    public void Si_RetiroValor1000DeCajeroAutomatico_Debe_Quedar0BilletesDe500()
     {
         CajeroAutomatico cajeroAutomatico = new();
         

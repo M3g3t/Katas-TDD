@@ -11,14 +11,14 @@
 - [x] Si retiro 50, debe mostrar como salida 1 billete de  valor  50
 - [x] Si retiro 100, debe mostrar como salida 1 billete de  valor  100
 - [x] Si retiro 200, debe mostrar como salida 1 billete de  valor  200
-- [x] Si retiro 500, debe mostrar como salida 1 billete de  valor  500
+- [x] Si retiro 5aa00, debe mostrar como salida 1 billete de  valor  500
   
   
 ## Casos complejos 
 - [x] Si retiro 1000, el valor disponible del cajero debe ser 4100
 - [x] Si retiro 600, debe mostrar como salida 1 billete de valor 500 y un billete de 100
-- [ ] Si retiro 1000, debe mostrar como salida 2 billetes de valor  500
-- [ ] Si retiro 1000, no deben quedar billetes de valor 500
+- [x] Si retiro 1000, debe mostrar como salida 2 billetes de valor  500
+- [x] Si retiro 1000, no deben quedar billetes de valor 500
 - [ ] Si retiro 1000 y vuelvo a retirar 600, no debe quedar billetes con valor de 500 y 200
 - [ ] Si retiro 1600 y vuelvo a retirar 500, no deben quedar billetes con valor de 500 200 y 100
 - [ ] Si retiro 2100 y vuelvo a retirar 600, no deben quedar billetes con valor de 500,200,100 y de 50
@@ -27,8 +27,6 @@
 - [ ] Si retiro 3600 y vuelvo a retirar 500, no deben quedar billetes con valor de 500,200,100,50,20,10,5
 - [ ] Si retiro 4100 y vuelvo a retirar 500, no deben quedar billetes con valor de 500,200,100,50,20,10,5 ni monedas de 2
 
-
-  
 ## Casos de borde
 - [x] **El dinero disponible inicial del cajero debe ser 5100**
 - [ ] Si retiro 0, debe lanzar excepcion por tope minimo excedido
