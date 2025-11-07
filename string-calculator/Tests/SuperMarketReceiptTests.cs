@@ -45,7 +45,7 @@ public class SuperMarketReceiptTests
     }
 
     [Fact]
-    public void Si_RegistroUnaCremaDenntalConPrecio6QueTieneDescuentoDe50PorCientoElValorAPagar_Debe_Ser3()
+    public void Si_RegistroUnaCremaDentalConPrecio6QueTieneDescuentoDe50PorCientoElValorAPagar_Debe_Ser3()
     {
         var cajaRegistradora = new CajaRegistradora();
         var productoConDescuento = new Producto("Crema Dental", 6);
@@ -54,8 +54,6 @@ public class SuperMarketReceiptTests
         
         cajaRegistradora.ValorAPagar.Should().Be(3);
     }
-
-
     
-    
+
 }
