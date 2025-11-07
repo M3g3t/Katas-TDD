@@ -2,10 +2,10 @@ namespace Core;
 
 public class CajaRegistradora
 {
-    public decimal ValorRegistrado { get; private set; } = 0;
+    public decimal ValorAPagar { get; private set; } = 0;
 
-    public void RegistrarProducto(int i)
+    public void RegistrarProducto(int precio)
     {
-        ValorRegistrado = 10;
+        ValorAPagar = 10;
     }
 }
