@@ -13,7 +13,7 @@ public class SuperMarcketReceiptTests
     }
 
     [Fact]
-    public void Si_RegistroProductoConPrecio10_ElValorAPagar_Debe_Ser10()
+    public void Si_RegistroProductoConPrecio10ElValorAPagar_Debe_Ser10()
     {
         var cajaRegistradora = new CajaRegistradora();
 
