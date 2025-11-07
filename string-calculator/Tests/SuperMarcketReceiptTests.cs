@@ -34,4 +34,17 @@ public class SuperMarcketReceiptTests
 
 
     }
+
+    [Fact]
+    public void Si_RegistroUnCepilloDentalConPrecio5ElValorAPagar_Debe_Ser5()
+    {
+        var cajaRegistradorra = new CajaRegistradora();
+        
+        cajaRegistradorra.RegistrarProducto(new Producto("Cepillo Dental",5));
+
+        cajaRegistradorra.ValorAPagar.Should().Be(5);
+        
+
+
+    }
 }
