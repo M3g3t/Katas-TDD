@@ -6,6 +6,6 @@ public class CajaRegistradora
 
     public void RegistrarProducto(int precio)
     {
-        ValorAPagar = 10;
+        ValorAPagar += precio;
     }
 }
