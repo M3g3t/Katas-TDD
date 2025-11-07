@@ -1,3 +1,5 @@
+using AwesomeAssertions;
+
 namespace Core.Tests;
 
 public class SuperMarcketReceiptTests
@@ -9,4 +11,9 @@ public class SuperMarcketReceiptTests
         
         cajaRegistradora.ValorRegistrado.Should().Be(0);
     }
+}
+
+public class CajaRegistradora
+{
+    public object ValorRegistrado { get; set; } = 0;
 }
