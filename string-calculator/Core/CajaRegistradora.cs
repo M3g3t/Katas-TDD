@@ -8,6 +8,8 @@ public class CajaRegistradora
     {
         if(producto.Nombre == "Crema Dental")
             ValorAPagar += producto.Precio / 2;
+        else if(producto.Nombre == "Arroz")
+            ValorAPagar +=   producto.Precio - ((10m / 100m) *  producto.Precio) ;
         else 
             ValorAPagar += producto.Precio;
     }

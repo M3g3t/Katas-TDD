@@ -21,4 +21,23 @@ El supermercado ofrece promociones especiales, por ejemplo:
 - [ ] 
 
 ## UnHappy path
-- [ ] 
+
+
+
+## Test a tener en cuenta
+
+```csharp
+[Fact]
+public void Si_RegitroTresCepillosDentalesYCadaUnidadVale5ElDescuento_Debe_()
+{
+    var cajaRegistradora = new CajaRegistradora();
+
+    var productoCepillo = new Producto("Cepillo Dental", 5);
+    
+    cajaRegistradora.RegistrarProducto(productoCepillo);
+    cajaRegistradora.RegistrarProducto(productoCepillo);
+    cajaRegistradora.RegistrarProducto(productoCepillo);
+    
+    cajaRegistradora.ValorAPagar.Should().Be(10);
+}
+```
