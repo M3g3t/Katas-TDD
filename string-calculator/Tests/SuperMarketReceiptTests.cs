@@ -54,6 +54,17 @@ public class SuperMarketReceiptTests
         
         cajaRegistradora.ValorAPagar.Should().Be(3);
     }
+
+    [Fact]
+    public void Si_RegitroUnaBolsaDeArrozYElDescuentoEsDel10Poriciento_Debe_DescontarEl10PorcientoDelValorDelProducto()
+    {
+        var cajaRegistradora = new CajaRegistradora();
+        var productoConDescuento = new Producto("Arroz", 20);
+        
+        cajaRegistradora.RegistrarProducto(productoConDescuento);
+        
+        cajaRegistradora.ValorAPagar.Should().Be(18);
+    }
     
 
 }
