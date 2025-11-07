@@ -17,7 +17,7 @@ public class SuperMarcketReceiptTests
     {
         var cajaRegistradora = new CajaRegistradora();
 
-        cajaRegistradora.RegistrarProducto(10);
+        cajaRegistradora.RegistrarProducto(new Producto("productop",10));
         
         cajaRegistradora.ValorAPagar.Should().Be(10);
     }
@@ -27,8 +27,8 @@ public class SuperMarcketReceiptTests
     {
         var cajaRegistradora = new CajaRegistradora();
         
-        cajaRegistradora.RegistrarProducto(5);
-        cajaRegistradora.RegistrarProducto(10);
+        cajaRegistradora.RegistrarProducto(new Producto("productop",5));
+        cajaRegistradora.RegistrarProducto(new Producto("productop",10));
 
         cajaRegistradora.ValorAPagar.Should().Be(15);
 
@@ -48,3 +48,4 @@ public class SuperMarcketReceiptTests
 
     }
 }
+
