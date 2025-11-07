@@ -6,6 +6,9 @@ public class CajaRegistradora
 
     public void RegistrarProducto(Producto producto)
     {
-        ValorAPagar += producto.Precio;
+        if(producto.Nombre == "Crema Dental")
+            ValorAPagar += producto.Precio / 2;
+        else 
+            ValorAPagar += producto.Precio;
     }
 }
