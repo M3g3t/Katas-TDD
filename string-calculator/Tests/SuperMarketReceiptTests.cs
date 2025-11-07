@@ -1,14 +1,15 @@
 using AwesomeAssertions;
+using Core.SuperMarket;
 
 namespace Core.Tests;
 
-public class SuperMarcketReceiptTests
+public class SuperMarketReceiptTests
 {
     [Fact]
     public void Si_InicializoCajaRegistradoraElValorAPagar_Debe_Ser0()
     {
         var cajaRegistradora = new CajaRegistradora();
-        
+
         cajaRegistradora.ValorAPagar.Should().Be(0);
     }
 
@@ -17,8 +18,8 @@ public class SuperMarcketReceiptTests
     {
         var cajaRegistradora = new CajaRegistradora();
 
-        cajaRegistradora.RegistrarProducto(new Producto("productop",10));
-        
+        cajaRegistradora.RegistrarProducto(new Producto("productop", 10));
+
         cajaRegistradora.ValorAPagar.Should().Be(10);
     }
 
@@ -26,26 +27,20 @@ public class SuperMarcketReceiptTests
     public void Si_RegistroDosProductosUnoConPrecio5yOtroConPrecio10ElValorAPagar_Debe_Ser15()
     {
         var cajaRegistradora = new CajaRegistradora();
-        
-        cajaRegistradora.RegistrarProducto(new Producto("productop",5));
-        cajaRegistradora.RegistrarProducto(new Producto("productop",10));
+
+        cajaRegistradora.RegistrarProducto(new Producto("productop", 5));
+        cajaRegistradora.RegistrarProducto(new Producto("productop", 10));
 
         cajaRegistradora.ValorAPagar.Should().Be(15);
-
-
     }
 
     [Fact]
     public void Si_RegistroUnCepilloDentalConPrecio5ElValorAPagar_Debe_Ser5()
     {
-        var cajaRegistradorra = new CajaRegistradora();
-        
-        cajaRegistradorra.RegistrarProducto(new Producto("Cepillo Dental",5));
+        var cajaRegistradora = new CajaRegistradora();
 
-        cajaRegistradorra.ValorAPagar.Should().Be(5);
-        
+        cajaRegistradora.RegistrarProducto(new Producto("Cepillo Dental", 5));
 
-
+        cajaRegistradora.ValorAPagar.Should().Be(5);
     }
 }
-
