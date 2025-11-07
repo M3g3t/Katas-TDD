@@ -18,7 +18,7 @@ public class SuperMarketReceiptTests
     {
         var cajaRegistradora = new CajaRegistradora();
 
-        cajaRegistradora.RegistrarProducto(new Producto("productop", 10));
+        cajaRegistradora.RegistrarProducto(new Producto(TipoProducto.Otro, 10));
 
         cajaRegistradora.ValorAPagar.Should().Be(10);
     }
@@ -28,8 +28,8 @@ public class SuperMarketReceiptTests
     {
         var cajaRegistradora = new CajaRegistradora();
 
-        cajaRegistradora.RegistrarProducto(new Producto("productop", 5));
-        cajaRegistradora.RegistrarProducto(new Producto("productop", 10));
+        cajaRegistradora.RegistrarProducto(new Producto(TipoProducto.Otro, 5));
+        cajaRegistradora.RegistrarProducto(new Producto(TipoProducto.Otro, 10));
 
         cajaRegistradora.ValorAPagar.Should().Be(15);
     }
@@ -39,7 +39,7 @@ public class SuperMarketReceiptTests
     {
         var cajaRegistradora = new CajaRegistradora();
 
-        cajaRegistradora.RegistrarProducto(new Producto("Cepillo Dental", 5));
+        cajaRegistradora.RegistrarProducto(new Producto(TipoProducto.CepilloDental, 5));
 
         cajaRegistradora.ValorAPagar.Should().Be(5);
     }
@@ -48,7 +48,7 @@ public class SuperMarketReceiptTests
     public void Si_RegistroUnaCremaDentalConPrecio6QueTieneDescuentoDe50PorCientoElValorAPagar_Debe_Ser3()
     {
         var cajaRegistradora = new CajaRegistradora();
-        var productoConDescuento = new Producto("Crema Dental", 6);
+        var productoConDescuento = new Producto(TipoProducto.CremaDental, 6);
         
         cajaRegistradora.RegistrarProducto(productoConDescuento);
         
@@ -59,7 +59,7 @@ public class SuperMarketReceiptTests
     public void Si_RegitroUnaBolsaDeArrozYElDescuentoEsDel10Poriciento_Debe_DescontarEl10PorcientoDelValorDelProducto()
     {
         var cajaRegistradora = new CajaRegistradora();
-        var productoConDescuento = new Producto("Arroz", 20);
+        var productoConDescuento = new Producto(TipoProducto.Arroz, 20);
         
         cajaRegistradora.RegistrarProducto(productoConDescuento);
         
