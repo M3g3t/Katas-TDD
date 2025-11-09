@@ -51,7 +51,7 @@ public class CajeroAutomaticoTests
         CajeroAutomatico cajeroAutomatico = new();
 
         var salida = cajeroAutomatico.Retirar(700);
-
+    
         salida.Should().BeEquivalentTo(new List<string> { "1 billete de valor 500", "1 billete de valor 200" });
     }
 
