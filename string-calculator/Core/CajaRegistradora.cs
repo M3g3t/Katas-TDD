@@ -4,12 +4,12 @@ namespace Core.SuperMarket;
 
 public class CajaRegistradora
 {
-    private readonly Descuento? _descuento;
+    private readonly Descuento[]? _descuentos;
 
 
-    public CajaRegistradora(Descuento descuento)
+    public CajaRegistradora(Descuento[] descuentos)
     {
-        _descuento = descuento;
+        _descuentos = descuentos;
     }
 
     public CajaRegistradora()
@@ -20,11 +20,13 @@ public class CajaRegistradora
 
     public void RegistrarProducto(Producto producto)
     {
-        ValorAPagar += CalcularPrecioProducto(producto.Precio);
+        ValorAPagar += CalcularPrecioProducto(producto);
     }
 
-    private decimal CalcularPrecioProducto(decimal precio)
+    private decimal CalcularPrecioProducto(Producto producto)
     {
-        return precio - (_descuento?.ObtenerPorcentaje() ?? 0) * precio;
+        var descuentoProducto = _descuentos?.FirstOrDefault(d => d.TipoProducto == producto.Tipo);
+        
+        return producto.Precio - (descuentoProducto?.ObtenerPorcentaje() ?? 0) * producto.Precio;
     }
 }
