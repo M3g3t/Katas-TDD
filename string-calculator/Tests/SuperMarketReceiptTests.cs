@@ -81,6 +81,25 @@ public class SuperMarketReceiptTests
         
         cajaRegistradora.ValorAPagar.Should().Be(valorAPagar);
     }
+
+    [Fact]
+    public void Si_ElDescuentoDelProductoArrozEsDel10PorcYDelCepilloDental35_Debe_ElValorAPagarTenerLosDescuentosCorresponndientes()
+    {
+        decimal porcentajeDescuentoArroz = 10, porcentajeDescuentoCepilloDental = 35;
+        Descuento[] descuentos = [new (TipoProducto.Arroz, porcentajeDescuentoArroz), new (TipoProducto.CepilloDental,porcentajeDescuentoCepilloDental)];
+        var cajaRegistradora = new CajaRegistradora(descuentos);
+        int valorArroz = 20, valorCepilloDeental = 40;
+        var productoArroz = new Producto(TipoProducto.Arroz, valorArroz);
+        var productoCepilloDental = new Producto(TipoProducto.CepilloDental, valorCepilloDeental);
+        
+        var valorArrozConDescuento = productoArroz.Precio - (porcentajeDescuentoArroz / 100 *  productoArroz.Precio);
+        var valorCepilloDentalConDescuento = productoCepilloDental.Precio - (porcentajeDescuentoCepilloDental / 100 *  productoCepilloDental.Precio);
+        
+        cajaRegistradora.RegistrarProducto(productoArroz);
+        cajaRegistradora.RegistrarProducto(productoCepilloDental);
+        
+        cajaRegistradora.ValorAPagar.Should().Be(valorArrozConDescuento + valorCepilloDentalConDescuento);
+    }
     
 
 }
