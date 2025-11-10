@@ -4,10 +4,15 @@ namespace StringCalculator;
 
 public class Descuento
 {
-    public decimal PorcentajeDescuento { get; }
+    private decimal _porcentaje = 0;
 
-    public Descuento(TipoProducto arroz, decimal porcentajeDescuento)
+    public Descuento(TipoProducto tipoProducto, decimal porcentaje)
     {
-        PorcentajeDescuento = porcentajeDescuento;
+        _porcentaje = porcentaje;
+    }
+
+    public decimal ObtenerPorcentaje()
+    {
+        return _porcentaje / 100;
     }
 }

@@ -1,5 +1,6 @@
 using AwesomeAssertions;
 using Core.SuperMarket;
+using StringCalculator;
 
 namespace Core.Tests;
 
@@ -47,7 +48,7 @@ public class SuperMarketReceiptTests
     [Fact]
     public void Si_RegistroUnaCremaDentalConPrecio6QueTieneDescuentoDe50PorCientoElValorAPagar_Debe_Ser3()
     {
-        var cajaRegistradora = new CajaRegistradora();
+        var cajaRegistradora = new CajaRegistradora(new Descuento(TipoProducto.CremaDental,50));
         var productoConDescuento = new Producto(TipoProducto.CremaDental, 6);
         
         cajaRegistradora.RegistrarProducto(productoConDescuento);
@@ -58,7 +59,8 @@ public class SuperMarketReceiptTests
     [Fact]
     public void Si_RegitroUnaBolsaDeArrozYElDescuentoEsDel10Poriciento_Debe_DescontarEl10PorcientoDelValorDelProducto()
     {
-        var cajaRegistradora = new CajaRegistradora();
+        var porcentajeDescuento = 10M;
+        var cajaRegistradora = new CajaRegistradora(new Descuento(TipoProducto.Arroz,porcentajeDescuento));
         var productoConDescuento = new Producto(TipoProducto.Arroz, 20);
         
         cajaRegistradora.RegistrarProducto(productoConDescuento);
@@ -73,7 +75,7 @@ public class SuperMarketReceiptTests
         var porcentajeDescuento = 30M;
         var cajaRegistradora = new CajaRegistradora(new Descuento(TipoProducto.Arroz,porcentajeDescuento));
         var productoConDescuento = new Producto(TipoProducto.Arroz, 20);
-        var valorAPagar =  productoConDescuento.Precio - (porcentajeDescuento / 100) *  productoConDescuento.Precio;
+        var valorAPagar =  productoConDescuento.Precio - (porcentajeDescuento / 100 *  productoConDescuento.Precio);
         
         cajaRegistradora.RegistrarProducto(productoConDescuento);
         
@@ -82,3 +84,4 @@ public class SuperMarketReceiptTests
     
 
 }
+
