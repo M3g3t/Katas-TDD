@@ -48,7 +48,7 @@ public class SuperMarketReceiptTests
     [Fact]
     public void Si_RegistroUnaCremaDentalConPrecio6QueTieneDescuentoDe50PorCientoElValorAPagar_Debe_Ser3()
     {
-        var cajaRegistradora = new CajaRegistradora(new Descuento(TipoProducto.CremaDental,50));
+        var cajaRegistradora = new CajaRegistradora([new Descuento(TipoProducto.CremaDental,50)]);
         var productoConDescuento = new Producto(TipoProducto.CremaDental, 6);
         
         cajaRegistradora.RegistrarProducto(productoConDescuento);
@@ -60,7 +60,7 @@ public class SuperMarketReceiptTests
     public void Si_RegitroUnaBolsaDeArrozYElDescuentoEsDel10Poriciento_Debe_DescontarEl10PorcientoDelValorDelProducto()
     {
         var porcentajeDescuento = 10M;
-        var cajaRegistradora = new CajaRegistradora(new Descuento(TipoProducto.Arroz,porcentajeDescuento));
+        var cajaRegistradora = new CajaRegistradora([new(TipoProducto.Arroz,porcentajeDescuento)]);
         var productoConDescuento = new Producto(TipoProducto.Arroz, 20);
         
         cajaRegistradora.RegistrarProducto(productoConDescuento);
@@ -73,11 +73,11 @@ public class SuperMarketReceiptTests
     public void Si_ElDescuentoDelProductoArrozEsDel30Porc_Debe_ElValorAPagarDelProductoArrozTenerDescuentoDel30Porc()
     {
         var porcentajeDescuento = 30M;
-        var cajaRegistradora = new CajaRegistradora(new Descuento(TipoProducto.Arroz,porcentajeDescuento));
-        var productoConDescuento = new Producto(TipoProducto.Arroz, 20);
-        var valorAPagar =  productoConDescuento.Precio - (porcentajeDescuento / 100 *  productoConDescuento.Precio);
+        var cajaRegistradora = new CajaRegistradora([new(TipoProducto.Arroz,porcentajeDescuento)]);
+        var productoArroz = new Producto(TipoProducto.Arroz, 20);
+        var valorAPagar =  productoArroz.Precio - (porcentajeDescuento / 100 *  productoArroz.Precio);
         
-        cajaRegistradora.RegistrarProducto(productoConDescuento);
+        cajaRegistradora.RegistrarProducto(productoArroz);
         
         cajaRegistradora.ValorAPagar.Should().Be(valorAPagar);
     }

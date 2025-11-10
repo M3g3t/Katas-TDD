@@ -5,6 +5,7 @@ namespace Core.SuperMarket;
 public class CajaRegistradora
 {
     private readonly Descuento[]? _descuentos;
+    public decimal ValorAPagar { get; private set; } = 0;
 
 
     public CajaRegistradora(Descuento[] descuentos)
@@ -16,7 +17,6 @@ public class CajaRegistradora
     {
     }
 
-    public decimal ValorAPagar { get; private set; } = 0;
 
     public void RegistrarProducto(Producto producto)
     {
@@ -25,8 +25,11 @@ public class CajaRegistradora
 
     private decimal CalcularPrecioProducto(Producto producto)
     {
-        var descuentoProducto = _descuentos?.FirstOrDefault(d => d.TipoProducto == producto.Tipo);
-        
-        return producto.Precio - (descuentoProducto?.ObtenerPorcentaje() ?? 0) * producto.Precio;
+        return producto.Precio - (ObtenerDescuentoProducto(producto)?.ObtenerPorcentaje() ?? 0) * producto.Precio;
+    }
+
+    private Descuento? ObtenerDescuentoProducto(Producto producto)
+    {
+        return _descuentos?.FirstOrDefault(d => d.TipoProducto == producto.Tipo);
     }
 }
