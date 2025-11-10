@@ -64,6 +64,20 @@ public class SuperMarketReceiptTests
         cajaRegistradora.RegistrarProducto(productoConDescuento);
         
         cajaRegistradora.ValorAPagar.Should().Be(18);
+        
+    }
+
+    [Fact]
+    public void Si_ElDescuentoDelProductoArrozEsDel30Porc_Debe_ElValorAPagarDelProductoArrozTenerDescuentoDel30Porc()
+    {
+        var porcentajeDescuento = 30M;
+        var cajaRegistradora = new CajaRegistradora(new Descuento(TipoProducto.Arroz,porcentajeDescuento));
+        var productoConDescuento = new Producto(TipoProducto.Arroz, 20);
+        var valorAPagar =  productoConDescuento.Precio - (porcentajeDescuento / 100) *  productoConDescuento.Precio;
+        
+        cajaRegistradora.RegistrarProducto(productoConDescuento);
+        
+        cajaRegistradora.ValorAPagar.Should().Be(valorAPagar);
     }
     
 
