@@ -100,6 +100,20 @@ public class SuperMarketReceiptTests
         
         cajaRegistradora.ValorAPagar.Should().Be(valorArrozConDescuento + valorCepilloDentalConDescuento);
     }
+
+
+    [Fact]
+    public void METHOD()
+    {
+        var cajaRegistradora = new CajaRegistradora();
+        var productoArroz = new Producto(TipoProducto.Arroz, 20);
+        cajaRegistradora.RegistrarProducto(productoArroz);
+        cajaRegistradora.RegistrarProducto(productoArroz);
+
+        // var factura = cajaRegistradora.GenerarFactura();
+        
+        // factura.Items[0].Cantidad.Should().Be(2);
+    }
     
 
 }
